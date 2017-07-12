@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @RequestMapping({"/", "/index.htm", "/index.html"})
-    public String helloHtml(Model mode) {
+    public String index(Model mode) {
         mode.addAttribute("hello","from TemplateController.helloHtml");
         return "index";
+    }
+
+    @RequestMapping("test.htm")
+    public String test(Model mode) {
+        return "test";
     }
 }
