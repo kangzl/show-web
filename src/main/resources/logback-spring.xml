@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="com.xiaofangtech.sunt.controller" level="WARN" additivity="true">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+    <!-- show sql -->
+    <logger name="com.kingfish.show.mybatis.dao" level="DEBUG"/>
+</configuration>
