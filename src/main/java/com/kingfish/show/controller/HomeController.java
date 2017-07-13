@@ -12,12 +12,8 @@ public class HomeController {
 
     @RequestMapping({"/", "/index.htm", "/index.html"})
     public String index(Model mode) {
-        mode.addAttribute("hello","from TemplateController.helloHtml");
+        mode.addAttribute("hello", "from TemplateController.helloHtml");
         return "index";
     }
 
-    @RequestMapping("test.htm")
-    public String test(Model mode) {
-        return "test";
-    }
 }

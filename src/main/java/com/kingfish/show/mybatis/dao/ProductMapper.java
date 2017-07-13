@@ -61,14 +61,16 @@ public interface ProductMapper {
         "view_sales, sale_id, ",
         "l1_category, source, ",
         "pic_url, shop_url, ",
-        "similar_url)",
+        "similar_url, title, ",
+        "keyword)",
         "values (#{productId,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, ",
         "#{gmtModify,jdbcType=TIMESTAMP}, #{detailUrl,jdbcType=VARCHAR}, ",
         "#{isP4p,jdbcType=BIT}, #{p4pUrl,jdbcType=VARCHAR}, #{cateId,jdbcType=BIGINT}, ",
         "#{viewSales,jdbcType=VARCHAR}, #{saleId,jdbcType=BIGINT}, ",
         "#{l1Category,jdbcType=BIGINT}, #{source,jdbcType=TINYINT}, ",
         "#{picUrl,jdbcType=VARCHAR}, #{shopUrl,jdbcType=VARCHAR}, ",
-        "#{similarUrl,jdbcType=VARCHAR})"
+        "#{similarUrl,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, ",
+        "#{keyword,jdbcType=VARCHAR})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Product record);
@@ -105,7 +107,9 @@ public interface ProductMapper {
         @Result(column="source", property="source", jdbcType=JdbcType.TINYINT),
         @Result(column="pic_url", property="picUrl", jdbcType=JdbcType.VARCHAR),
         @Result(column="shop_url", property="shopUrl", jdbcType=JdbcType.VARCHAR),
-        @Result(column="similar_url", property="similarUrl", jdbcType=JdbcType.VARCHAR)
+        @Result(column="similar_url", property="similarUrl", jdbcType=JdbcType.VARCHAR),
+        @Result(column="title", property="title", jdbcType=JdbcType.VARCHAR),
+        @Result(column="keyword", property="keyword", jdbcType=JdbcType.VARCHAR)
     })
     List<Product> selectByExample(ProductExample example);
 
@@ -118,7 +122,8 @@ public interface ProductMapper {
     @Select({
         "select",
         "id, product_id, gmt_create, gmt_modify, detail_url, is_p4p, p4p_url, cate_id, ",
-        "view_sales, sale_id, l1_category, source, pic_url, shop_url, similar_url",
+        "view_sales, sale_id, l1_category, source, pic_url, shop_url, similar_url, title, ",
+        "keyword",
         "from product",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -137,7 +142,9 @@ public interface ProductMapper {
         @Result(column="source", property="source", jdbcType=JdbcType.TINYINT),
         @Result(column="pic_url", property="picUrl", jdbcType=JdbcType.VARCHAR),
         @Result(column="shop_url", property="shopUrl", jdbcType=JdbcType.VARCHAR),
-        @Result(column="similar_url", property="similarUrl", jdbcType=JdbcType.VARCHAR)
+        @Result(column="similar_url", property="similarUrl", jdbcType=JdbcType.VARCHAR),
+        @Result(column="title", property="title", jdbcType=JdbcType.VARCHAR),
+        @Result(column="keyword", property="keyword", jdbcType=JdbcType.VARCHAR)
     })
     Product selectByPrimaryKey(Long id);
 
@@ -189,7 +196,9 @@ public interface ProductMapper {
           "source = #{source,jdbcType=TINYINT},",
           "pic_url = #{picUrl,jdbcType=VARCHAR},",
           "shop_url = #{shopUrl,jdbcType=VARCHAR},",
-          "similar_url = #{similarUrl,jdbcType=VARCHAR}",
+          "similar_url = #{similarUrl,jdbcType=VARCHAR},",
+          "title = #{title,jdbcType=VARCHAR},",
+          "keyword = #{keyword,jdbcType=VARCHAR}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Product record);

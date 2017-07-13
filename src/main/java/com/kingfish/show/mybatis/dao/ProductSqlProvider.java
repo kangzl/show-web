@@ -102,6 +102,14 @@ public class ProductSqlProvider {
             sql.VALUES("similar_url", "#{similarUrl,jdbcType=VARCHAR}");
         }
         
+        if (record.getTitle() != null) {
+            sql.VALUES("title", "#{title,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getKeyword() != null) {
+            sql.VALUES("keyword", "#{keyword,jdbcType=VARCHAR}");
+        }
+        
         return sql.toString();
     }
 
@@ -132,6 +140,8 @@ public class ProductSqlProvider {
         sql.SELECT("pic_url");
         sql.SELECT("shop_url");
         sql.SELECT("similar_url");
+        sql.SELECT("title");
+        sql.SELECT("keyword");
         sql.FROM("product");
         applyWhere(sql, example, false);
         
@@ -215,6 +225,14 @@ public class ProductSqlProvider {
             sql.SET("similar_url = #{record.similarUrl,jdbcType=VARCHAR}");
         }
         
+        if (record.getTitle() != null) {
+            sql.SET("title = #{record.title,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getKeyword() != null) {
+            sql.SET("keyword = #{record.keyword,jdbcType=VARCHAR}");
+        }
+        
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -244,6 +262,8 @@ public class ProductSqlProvider {
         sql.SET("pic_url = #{record.picUrl,jdbcType=VARCHAR}");
         sql.SET("shop_url = #{record.shopUrl,jdbcType=VARCHAR}");
         sql.SET("similar_url = #{record.similarUrl,jdbcType=VARCHAR}");
+        sql.SET("title = #{record.title,jdbcType=VARCHAR}");
+        sql.SET("keyword = #{record.keyword,jdbcType=VARCHAR}");
         
         ProductExample example = (ProductExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -314,6 +334,14 @@ public class ProductSqlProvider {
         
         if (record.getSimilarUrl() != null) {
             sql.SET("similar_url = #{similarUrl,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getTitle() != null) {
+            sql.SET("title = #{title,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getKeyword() != null) {
+            sql.SET("keyword = #{keyword,jdbcType=VARCHAR}");
         }
         
         sql.WHERE("id = #{id,jdbcType=BIGINT}");
