@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WookmarkExampleController {
 
+    @RequestMapping("api.htm")
+    public String api(Model mode) {
+        return "wookmark-example/api";
+    }
+
     @RequestMapping("example.htm")
     public String example(Model mode) {
         return "wookmark-example/example";
