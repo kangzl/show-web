@@ -2,6 +2,9 @@
     padding: 0px;
     border-width: 0px;
 }
-.tiles-wrap li{
+.tiles-wrap li {
+    width: 226px;
+}
+.tiles-wrap li img{
     width: 226px;
 }
