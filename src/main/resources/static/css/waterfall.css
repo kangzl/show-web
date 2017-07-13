@@ -2,3 +2,6 @@
     padding: 0px;
     border-width: 0px;
 }
+.tiles-wrap li{
+    width: 226px;
+}
