@@ -127,7 +127,8 @@
             var i = 0, length = data.length, image;
             for (; i < length; i++) {
                 image = data[i];
-                html += '<li>';
+                html += '<li class="show">';
+                html += '<div class="show-menu"><a href="https://baidu.com"><span>添加</span></a>|<a href="http://csdn.com"><span>删除</span></a></div>';
                 // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
                 html += '<img class="show-img" src="' + image.preview + '">';
                 // Image title.
@@ -147,6 +148,8 @@
         // Load first data from the API.
         loadData();
     })(jQuery);
+
+
 </script>
 
 </body>

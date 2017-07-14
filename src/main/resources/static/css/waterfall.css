@@ -63,3 +63,23 @@
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
 }
 
+.show-menu {
+    display: none;
+    border-radius: 3px;
+    position: fixed;
+    width: 226px;
+    background: #b3b3b3;
+    filter: alpha(Opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.tiles-wrap li:hover > .show-menu {
+    display: block;
+}
+
+.show-menu span {
+    width: 50px;
+    font-size: 22px;
+    text-align: center;
+}
