@@ -29,6 +29,8 @@ public class GetShowController {
     @RequestMapping("api/get-shows.json")
     public ShowVO getBooks(@RequestParam(value = "page", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "15") int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
+        ShowsExample showsExample = new ShowsExample();
+        showsExample.setOrderByClause("show_time desc");
         List<Shows> shows = showsMapper.selectByExample(new ShowsExample());
         return makeVO(shows);
     }
