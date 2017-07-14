@@ -2,9 +2,39 @@
     padding: 0px;
     border-width: 0px;
 }
+
 .tiles-wrap li {
     width: 226px;
 }
-.tiles-wrap li img{
+
+.tiles-wrap li img {
     width: 226px;
+}
+
+.interact-info {
+    margin-right: 10px;
+    margin-left: 10px;
+    border-bottom: 1px solid #F0F0F0;
+    height: 50px;
+    line-height: 50px; /*垂直居中*/
+}
+
+.interact-data {
+    width: 100px;
+    float: left;
+}
+
+.interact-users {
+    height: 50px;
+    width: 100px;
+    float: right;
+}
+
+.tiles-wrap li .interact-users img {
+    width: 25px;
+    height: 25px;
+    line-height: 50px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 12px;
 }

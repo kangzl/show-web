@@ -1,15 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
-    <title>Wookmark API Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="An example how to achieve a endless scroll effect with Wookmark"/>
     <meta name="author" content="Christoph Ono, Sebastian Helzle"/>
 
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Wookmark API Test</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <!-- CSS Reset -->
     <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
 
@@ -19,10 +21,10 @@
     <link rel="stylesheet" href="../css/main.css"/>
 
     <link rel="stylesheet" href="../css/waterfall.css"/>
+
 </head>
 
 <body>
-
 <div>
     <header>
         <h1>Wookmark Endless Scroll Example</h1>
@@ -46,6 +48,9 @@
 <!-- include jQuery -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
 <!-- Include the imagesLoaded plug-in -->
 <script src="../bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
 
@@ -68,12 +73,13 @@
                 outerOffset: 10,
                 itemWidth: 226 // Optional, the width of a grid item
             };
+
         /**
          * When scrolled all the way to the bottom, add more tiles.
          */
         function onScroll(event) {
             // Only check when we're not still waiting for data.
-            if(!isLoading) {
+            if (!isLoading) {
                 // Check if we're within 100 pixels of the bottom edge of the broser window.
                 var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
                 if (closeToBottom) {
@@ -87,7 +93,7 @@
         function applyLayout() {
             imagesLoaded(container, function () {
                 if (wookmark === undefined) {
-                    wookmark = new Wookmark(container,options);
+                    wookmark = new Wookmark(container, options);
                 } else {
                     wookmark.initItems();
                     wookmark.layout(true);
@@ -118,14 +124,17 @@
             page++;
             // Create HTML for the images.
             var html = '';
-            var i=0, length=data.length, image;
-            for(; i<length; i++) {
+            var i = 0, length = data.length, image;
+            for (; i < length; i++) {
                 image = data[i];
                 html += '<li>';
                 // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
-                html += '<img src="'+image.preview+'">';
+                html += '<img src="' + image.preview + '">';
                 // Image title.
-                html += '<p>'+image.title+'</p>';
+                var interactInfo = '<div class="interact-info"><div class="interact-data"><i class="fa fa-heart" style="color: red"/> 533 <i class="fa fa-comments" style="color: mediumseagreen"/> 123</div><div class="interact-users"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/></div></div>';
+                var showContent = '<div class="show-info"><div class="user-info"><i class="fa fa-certificate" style="color: lightblue"/></div><div class="show-content">' + image.title + '</div></div>';
+
+                html += interactInfo + showContent;
                 html += '</li>';
             }
             // Add image HTML to the page.
