@@ -63,8 +63,10 @@
             $loaderCircle = $('#loaderCircle'),
             wookmark = undefined,
             options = {
-                offset: 2, // Optional, the distance between grid items
-                itemWidth: 210 // Optional, the width of a grid item
+                offset: 20, // Optional, the distance between grid items
+                verticalOffset: 20,
+                outerOffset: 10,
+                itemWidth: 226 // Optional, the width of a grid item
             };
         /**
          * When scrolled all the way to the bottom, add more tiles.
@@ -85,7 +87,7 @@
         function applyLayout() {
             imagesLoaded(container, function () {
                 if (wookmark === undefined) {
-                    wookmark = new Wookmark(container);
+                    wookmark = new Wookmark(container,options);
                 } else {
                     wookmark.initItems();
                     wookmark.layout(true);
@@ -121,7 +123,7 @@
                 image = data[i];
                 html += '<li>';
                 // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
-                html += '<img src="'+image.preview+'" width="200" height="'+Math.round(image.height/image.width*200)+'">';
+                html += '<img src="'+image.preview+'">';
                 // Image title.
                 html += '<p>'+image.title+'</p>';
                 html += '</li>';

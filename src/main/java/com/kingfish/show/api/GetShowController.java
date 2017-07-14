@@ -27,7 +27,7 @@ public class GetShowController {
     private ShowsMapper showsMapper;
 
     @RequestMapping("api/get-shows.json")
-    public ShowVO getBooks(@RequestParam(value = "page", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+    public ShowVO getBooks(@RequestParam(value = "page", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "15") int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<Shows> shows = showsMapper.selectByExample(new ShowsExample());
         return makeVO(shows);
@@ -49,8 +49,8 @@ public class GetShowController {
                 String firstPicUrl = Splitter.on(",").splitToList(pics).get(0);
                 dataBean.setImage(firstPicUrl.substring(0, firstPicUrl.length() - 12));
                 dataBean.setPreview(firstPicUrl);
-                dataBean.setHeight("200");
-                dataBean.setHeight("400");
+                //dataBean.setHeight("200"); self-adaption
+                //dataBean.setHeight("400"); self-adaption
                 showVO.getData().add(dataBean);
             });
         }
