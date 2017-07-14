@@ -31,7 +31,7 @@ public class GetShowController {
         PageHelper.startPage(pageNum, pageSize);
         ShowsExample showsExample = new ShowsExample();
         showsExample.setOrderByClause("show_time desc");
-        List<Shows> shows = showsMapper.selectByExample(new ShowsExample());
+        List<Shows> shows = showsMapper.selectByExample(showsExample);
         return makeVO(shows);
     }
 
