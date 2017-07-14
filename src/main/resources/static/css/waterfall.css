@@ -46,13 +46,20 @@
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
 .tiles-wrap li .show-img {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
     border-radius: 3px;
 }
+
+.tiles-wrap li:hover {
+    -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+}
+
