@@ -13,7 +13,8 @@
             itemSelector: '.show',
             columnWidth: '.grid-sizer',
             gutter: 20,
-            isAnimated: true
+            isAnimated: true,
+            transitionDuration: '0.5s'
         };
 
     /**
@@ -34,7 +35,6 @@
      * Loads data from the API.
      */
     function loadData() {
-        isLoading = true;
         $loaderCircle.show();
         $.ajax({
             url: apiURL,
@@ -42,6 +42,7 @@
             data: {page: page}, // Page parameter to make sure we load new data
             success: onLoadData
         });
+        isLoading = true;
     };
     /**
      * Receives data from the API, creates HTML for images and updates the layout
