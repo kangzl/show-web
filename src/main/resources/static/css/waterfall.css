@@ -1,14 +1,20 @@
+
 #container li {
     padding: 0px;
     border-width: 0px;
+    list-style-type: none;
 }
 
-.tiles-wrap li {
-    width: 226px;
+.tiles-wrap li, .grid-sizer, .show-menu {
+    width: 18%;
+}
+
+.grid-sizer {
+    margin-bottom: 20px;
 }
 
 .tiles-wrap li img {
-    width: 226px;
+    width: 100%;
 }
 
 .interact-info {
@@ -67,7 +73,6 @@
     display: none;
     border-radius: 3px;
     position: fixed;
-    width: 226px;
     background: #b3b3b3;
     filter: alpha(Opacity=50);
     -moz-opacity: 0.5;
