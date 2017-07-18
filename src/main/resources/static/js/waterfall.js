@@ -1,12 +1,12 @@
 /**
  * Created by kingfish on 2017/7/17.
  */
+var $grid = undefined;
 (function ($) {
     var page = 1,
         isLoading = false,
         apiURL = 'api/get-shows.json',
         container = '#container',
-        $grid = undefined,
         $loaderCircle = $('#loaderCircle'),
         options = {
             itemSelector: '.show',
@@ -63,24 +63,23 @@
             // Image title.
             var interactInfo = '<div class="interact-info"><div class="interact-data"><i class="fa fa-heart" style="color: red"/> 533 <i class="fa fa-comments" style="color: mediumseagreen"/> 123</div><div class="interact-users"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/></div></div>';
             var showContent = '<div class="show-info"><div class="user-info"><i class="fa fa-certificate" style="color: lightblue"/></div><div class="show-content">' + image.title + '</div></div>';
-
             html += interactInfo + showContent;
             html += '</li>';
         }
         if ($grid == undefined) {
             $(container).append(html);
             imagesLoaded(container, function () {
-                $grid = $('#container').masonry(options)
-                $grid.masonry('layout');
+                $grid = $(container).masonry(options)
             });
         } else {
             // wrap content in jQuery object
             var $content = $(html);
             // add jQuery object
-            imagesLoaded(container, function () {
-                $grid.append($content).masonry('appended', $content);
+            $grid.append($content).masonry('appended', $content);
+            $grid.imagesLoaded().done(function () {
                 $grid.masonry('layout');
             });
+
         }
         isLoading = false;
     };
