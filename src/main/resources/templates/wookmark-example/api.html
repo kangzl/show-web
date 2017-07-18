@@ -55,7 +55,9 @@
 <script src="../bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
 
 <!-- Include the plug-in -->
-<script src="../js/wookmark/wookmark.js"></script>
+<script src="../js/wookmark/wookmark.min.js"></script>
+
+<script src="../js/jqueryplugins/jquery.collapser.min.js"></script>
 
 <!-- Once the page is loaded, initalize the plug-in. -->
 <script type="text/javascript">
@@ -104,7 +106,6 @@
          * Loads data from the API.
          */
         function loadData() {
-            isLoading = true;
             $loaderCircle.show();
             $.ajax({
                 url: apiURL,
@@ -117,8 +118,8 @@
          * Receives data from the API, creates HTML for images and updates the layout
          */
         function onLoadData(result) {
+            isLoading = true;
             var data = result.data;
-            isLoading = false;
             $loaderCircle.hide();
             // Increment page index for future calls.
             page++;
@@ -133,8 +134,7 @@
                 html += '<img class="show-img" src="' + image.preview + '">';
                 // Image title.
                 var interactInfo = '<div class="interact-info"><div class="interact-data"><i class="fa fa-heart" style="color: red"/> 533 <i class="fa fa-comments" style="color: mediumseagreen"/> 123</div><div class="interact-users"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/></div></div>';
-                var showContent = '<div class="show-info"><div class="user-info"><i class="fa fa-certificate" style="color: lightblue"/></div><div class="show-content">' + image.title + '</div></div>';
-
+                var showContent = '<div class="show-info"><div class="user-info"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><div class="nickname">test</div></div><p class="show-content">' + image.title + '</p></div>';
                 html += interactInfo + showContent;
                 html += '</li>';
             }
@@ -142,6 +142,22 @@
             $(container).append(html);
             // Apply layout.
             applyLayout();
+
+            $('.show-content').each(function () {
+                $(this).collapser({
+                    mode: 'chars',
+                    truncate: 50,
+                    dynamic: true,
+                    showText: '<button data-loading-text="loading..." class="btn btn-info showmore">展开全部</button>',
+                    lockHide: true,
+                    afterShow: function () {
+                        wookmark.initItems();
+                        wookmark.layout(true);
+                    }
+                });
+            });
+
+            isLoading = false;
         };
         // Capture scroll event.
         $(document).bind('scroll', onScroll);

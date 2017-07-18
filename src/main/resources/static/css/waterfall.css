@@ -69,7 +69,7 @@ menu
 }
 
 /**
-user
+interact-users
  */
 .interact-info {
     margin-right: 10px;
@@ -97,4 +97,38 @@ user
     float: right;
     margin-right: 5px;
     margin-top: 12px;
+}
+
+/**
+users
+ */
+.user-info {
+    height: 50px;
+}
+
+.tiles-wrap li .user-info {
+    margin: 10px auto;
+    padding: 0 10px 0 10px;
+}
+
+.tiles-wrap li .user-info img {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+.nickname {
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    width: 140px;
+    float: right;
+}
+
+.show-content {
+    margin: 0 10px 20px 10px;
+}
+
+.showmore{
+    font-size: 14px;
 }
