@@ -28,17 +28,6 @@
     border-radius: 3px;
 }
 
-.tiles-wrap li:hover {
-    background-color: #fafafa;
-}
-
-.tiles-wrap.animated li {
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
 .tiles-wrap li .show-img {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -49,6 +38,11 @@
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+    background-color: #fafafa;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 /**
