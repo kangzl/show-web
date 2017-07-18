@@ -125,10 +125,21 @@ users
     float: right;
 }
 
+.nickname a {
+    font-size: 18px;
+    font-weight: normal;
+    color: red;
+}
+
+.nickname a:hover {
+    text-decoration: underline;
+    color: #46b8da;
+}
+
 .show-content {
     margin: 0 10px 20px 10px;
 }
 
-.showmore{
+.showmore {
     font-size: 14px;
 }
