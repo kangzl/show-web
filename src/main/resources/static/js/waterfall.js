@@ -3,7 +3,6 @@
  */
 (function ($) {
     var page = 1,
-        firstLoad = true,
         isLoading = false,
         apiURL = 'api/get-shows.json',
         container = '#container',
@@ -42,14 +41,13 @@
             data: {page: page}, // Page parameter to make sure we load new data
             success: onLoadData
         });
-        isLoading = true;
     };
     /**
      * Receives data from the API, creates HTML for images and updates the layout
      */
     function onLoadData(result) {
+        isLoading = true;
         var data = result.data;
-        isLoading = false;
         $loaderCircle.hide();
         // Increment page index for future calls.
         page++;
@@ -69,21 +67,22 @@
             html += interactInfo + showContent;
             html += '</li>';
         }
-        if (firstLoad) {
+        if ($grid == undefined) {
             $(container).append(html);
             imagesLoaded(container, function () {
                 $grid = $('#container').masonry(options)
+                $grid.masonry('layout');
             });
-            firstLoad = false;
         } else {
             // wrap content in jQuery object
             var $content = $(html);
             // add jQuery object
             imagesLoaded(container, function () {
                 $grid.append($content).masonry('appended', $content);
+                $grid.masonry('layout');
             });
         }
-        $grid.masonry('layout');
+        isLoading = false;
     };
     // Capture scroll event.
     $(document).bind('scroll', onScroll);
