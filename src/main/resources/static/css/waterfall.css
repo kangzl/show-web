@@ -1,10 +1,4 @@
 
-#container li {
-    padding: 0px;
-    border-width: 0px;
-    list-style-type: none;
-}
-
 .tiles-wrap li, .grid-sizer, .show-menu {
     width: 226px;
 }
@@ -17,6 +11,72 @@
     width: 100%;
 }
 
+/**
+ * Grid items
+ */
+.tiles-wrap li {
+    padding: 0px;
+    border-width: 0px;
+    list-style-type: none;
+    cursor: pointer;
+    text-align: center;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.tiles-wrap li:hover {
+    background-color: #fafafa;
+}
+
+.tiles-wrap.animated li {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.tiles-wrap li .show-img {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.tiles-wrap li:hover {
+    -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+}
+
+/**
+menu
+*/
+.show-menu {
+    display: none;
+    border-radius: 3px;
+    position: fixed;
+    background: #b3b3b3;
+    filter: alpha(Opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.tiles-wrap li:hover > .show-menu {
+    display: block;
+}
+
+.show-menu span {
+    width: 50px;
+    font-size: 22px;
+    text-align: center;
+}
+
+/**
+user
+ */
 .interact-info {
     margin-right: 10px;
     margin-left: 10px;
@@ -43,48 +103,4 @@
     float: right;
     margin-right: 5px;
     margin-top: 12px;
-}
-
-/**
- * Grid items
- */
-.tiles-wrap li {
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-.tiles-wrap li .show-img {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-.tiles-wrap li:hover {
-    -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
-}
-
-.show-menu {
-    display: none;
-    border-radius: 3px;
-    position: fixed;
-    background: #b3b3b3;
-    filter: alpha(Opacity=50);
-    -moz-opacity: 0.5;
-    opacity: 0.5;
-}
-
-.tiles-wrap li:hover > .show-menu {
-    display: block;
-}
-
-.show-menu span {
-    width: 50px;
-    font-size: 22px;
-    text-align: center;
 }
