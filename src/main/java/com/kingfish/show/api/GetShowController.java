@@ -45,11 +45,11 @@ public class GetShowController {
             shows.forEach(show -> {
                 ShowVO.DataBean dataBean = new ShowVO.DataBean();
                 dataBean.setId(String.valueOf(show.getId()));
-                dataBean.setTitle(show.getContent());
+                dataBean.setContent(show.getContent());
                 String pics = show.getPics();
                 if (StringUtils.isEmpty(pics)) return;
                 String firstPicUrl = Splitter.on(",").splitToList(pics).get(0);
-                dataBean.setImage(firstPicUrl.substring(0, firstPicUrl.length() - 12));
+                //dataBean.setImage(firstPicUrl.substring(0, firstPicUrl.length() - 12));
                 dataBean.setPreview(firstPicUrl);
                 //dataBean.setHeight("200"); self-adaption
                 //dataBean.setHeight("400"); self-adaption

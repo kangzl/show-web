@@ -53,16 +53,16 @@ var $grid = undefined;
         page++;
         // Create HTML for the images.
         var html = '';
-        var i = 0, length = data.length, image;
+        var i = 0, length = data.length, show;
         for (; i < length; i++) {
-            image = data[i];
+            show = data[i];
             html += '<li class="show grid-sizer">';
             html += '<div class="show-menu"><a href="https://baidu.com"><span>添加</span></a>|<a href="http://csdn.com"><span>删除</span></a></div>';
             // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
-            html += '<img class="show-img" src="' + image.preview + '">';
+            html += '<img class="show-img" src="' + show.preview + '">';
             // Image title.
             var interactInfo = '<div class="interact-info"><div class="interact-data"><i class="fa fa-heart" style="color: red"/> 533 <i class="fa fa-comments" style="color: mediumseagreen"/> 123</div><div class="interact-users"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/></div></div>';
-            var showContent = '<div class="show-info"><div class="user-info"><i class="fa fa-certificate" style="color: lightblue"/></div><div class="show-content">' + image.title + '</div></div>';
+            var showContent = '<div class="show-info"><div class="user-info"><i class="fa fa-certificate" style="color: lightblue"/></div><div class="show-content">' + show.title + '</div></div>';
             html += interactInfo + showContent;
             html += '</li>';
         }
