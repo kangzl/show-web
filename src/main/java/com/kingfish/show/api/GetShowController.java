@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.kingfish.show.bean.ShowVO;
+import com.kingfish.show.bean.UserVO;
 import com.kingfish.show.mybatis.dao.ShowsMapper;
 import com.kingfish.show.mybatis.model.Shows;
 import com.kingfish.show.mybatis.model.ShowsExample;
@@ -44,13 +45,20 @@ public class GetShowController {
             showVO.setData(Lists.newArrayList());
             shows.forEach(show -> {
                 ShowVO.DataBean dataBean = new ShowVO.DataBean();
-                dataBean.setId(String.valueOf(show.getId()));
+                dataBean.setId(show.getId());
                 dataBean.setContent(show.getContent());
                 String pics = show.getPics();
                 if (StringUtils.isEmpty(pics)) return;
                 String firstPicUrl = Splitter.on(",").splitToList(pics).get(0);
                 //dataBean.setImage(firstPicUrl.substring(0, firstPicUrl.length() - 12));
                 dataBean.setPreview(firstPicUrl);
+                dataBean.setUser(new UserVO(show.getOutsideUserNickname(), show.getOutsideUserHeadPic()));
+                if (show.getIsOutside()) {
+                    dataBean.setOutside(show.getIsOutside());
+                    dataBean.setUser(new UserVO(show.getOutsideUserNickname(), show.getOutsideUserHeadPic()));
+                    //TODO:获取最近点赞的用户id和头像
+                    //dataBean.setUserLikeLately();
+                }
                 //dataBean.setHeight("200"); self-adaption
                 //dataBean.setHeight("400"); self-adaption
                 showVO.getData().add(dataBean);
