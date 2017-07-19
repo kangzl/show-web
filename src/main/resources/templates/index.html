@@ -70,13 +70,12 @@
         var handler = null,
             page = 1,
             isLoading = false,
-            apiURL = 'api/get-shows.json',
+            apiURL = 'api/get-shows.htm',
             container = '#container',
             $loaderCircle = $('#loaderCircle'),
             wookmark = undefined,
             options = {
                 align: 'center',
-                resizeDelay: 50,
                 offset: 20, // Optional, the distance between grid items
                 verticalOffset: 20,
                 outerOffset: 10,
@@ -116,7 +115,7 @@
             $loaderCircle.show();
             $.ajax({
                 url: apiURL,
-                dataType: 'json',
+                dataType: 'html',
                 data: {page: page}, // Page parameter to make sure we load new data
                 success: onLoadData
             });
@@ -126,28 +125,10 @@
          */
         function onLoadData(result) {
             isLoading = true;
-            if (!result.success) return;
-            var data = result.data;
             $loaderCircle.hide();
             // Increment page index for future calls.
             page++;
-            // Create HTML for the images.
-            var html = '';
-            var i = 0, length = data.length, show;
-            for (; i < length; i++) {
-                show = data[i];
-                html += '<li class="show-each">';
-                html += '<div class="show-menu"><a href="https://baidu.com"><span>添加</span></a>|<a href="http://csdn.com"><i class="fa fa-heart-o"></i></a></div>';
-                // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
-                html += '<img class="show-img" src="' + show.preview + '">';
-                // Image title.
-                var interactInfo = '<div class="interact-info"><div class="interact-data"><i class="fa fa-heart" style="color: red"/> 533 <i class="fa fa-comments" style="color: mediumseagreen"/> 123</div><div class="interact-users"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/></div></div>';
-                var showContent = '<div class="show-info"><div class="user-info"><img class="img-circle" src="' + show.user.headerPicUrl + '" alt="用户头像"/><div class="nickname"><a href="#">' + show.user.userName + '</a></div></div><p class="show-content">' + show.content + '</p></div>';
-                html += interactInfo + showContent;
-                html += '</li>';
-            }
-            // Add image HTML to the page.
-            $(container).append(html);
+            $(container).append(result);
             // Apply layout.
             applyLayout();
 
