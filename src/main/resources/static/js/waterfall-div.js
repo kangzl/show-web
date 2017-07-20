@@ -67,6 +67,20 @@ var $grid = undefined;
             });
 
         }
+
+        $('.show-content').each(function () {
+            $(this).collapser({
+                mode: 'chars',
+                truncate: 50,
+                dynamic: true,
+                showText: '<button data-loading-text="loading..." class="btn btn-info showmore">展开全部</button>',
+                lockHide: true,
+                afterShow: function () {
+                    $grid.masonry('layout');
+                }
+            });
+        });
+
         isLoading = false;
     };
     // Capture scroll event.

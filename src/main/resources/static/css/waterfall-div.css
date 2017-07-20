@@ -73,8 +73,9 @@ menu
 }
 
 /**
-user
+interact-users
  */
+
 .interact-info {
     margin-right: 10px;
     margin-left: 10px;
@@ -101,4 +102,59 @@ user
     float: right;
     margin-right: 5px;
     margin-top: 12px;
+}
+
+/**
+users
+ */
+
+.user-info {
+    height: 50px;
+    margin: 10px auto;
+    padding: 0 10px 0 10px;
+}
+
+.show .user-info img {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+.show .interact-users img {
+    width: 25px;
+    height: 25px;
+    line-height: 50px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 12px;
+}
+
+.nickname {
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    width: 140px;
+    float: right;
+}
+
+.nickname a {
+    font-size: 18px;
+    font-weight: normal;
+    color: red;
+}
+
+.nickname a:hover {
+    text-decoration: underline;
+    color: #46b8da;
+}
+
+/**
+show-content
+ */
+.show-content {
+    margin: 0 10px 20px 10px;
+}
+
+.showmore {
+    font-size: 14px;
 }
