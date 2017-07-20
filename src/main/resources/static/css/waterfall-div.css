@@ -1,9 +1,9 @@
-#container {
+.container {
     width: 1280px;
     margin: 0 auto;
 }
 
-#item, .grid-sizer, .show-menu {
+.show, .grid-sizer, .show-menu {
     width: 226px;
 }
 
@@ -11,14 +11,14 @@
     margin-bottom: 20px;
 }
 
-#item img {
+.show img {
     width: 100%;
 }
 
 /**
  * Grid items
  */
-#item {
+.show {
     padding: 0px;
     border-width: 0px;
     list-style-type: none;
@@ -32,13 +32,13 @@
     border-radius: 3px;
 }
 
-#item .show-img {
+.show .show-img {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
-#item:hover {
+.show:hover {
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
@@ -62,7 +62,7 @@ menu
     opacity: 0.5;
 }
 
-#item:hover > .show-menu {
+.show:hover > .show-menu {
     display: block;
 }
 
@@ -94,7 +94,7 @@ user
     float: right;
 }
 
-#item .interact-users img {
+.show .interact-users img {
     width: 25px;
     height: 25px;
     line-height: 50px;

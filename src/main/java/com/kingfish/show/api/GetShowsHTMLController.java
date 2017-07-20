@@ -29,13 +29,23 @@ public class GetShowsHTMLController {
     private ShowsMapper showsMapper;
 
     @RequestMapping("api/get-shows.htm")
-    public String getBooks(Model mode, @RequestParam(value = "page", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "15") int pageSize) {
+    public String getShows(Model mode, @RequestParam(value = "page", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "15") int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         ShowsExample showsExample = new ShowsExample();
         showsExample.setOrderByClause("show_time desc");
         List<Shows> shows = showsMapper.selectByExample(showsExample);
         mode.addAttribute("shows", makeVO(shows));
         return "get-shows";
+    }
+
+    @RequestMapping("api/get-shows-div.htm")
+    public String getShows4Div(Model mode, @RequestParam(value = "page", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "15") int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        ShowsExample showsExample = new ShowsExample();
+        showsExample.setOrderByClause("show_time desc");
+        List<Shows> shows = showsMapper.selectByExample(showsExample);
+        mode.addAttribute("shows", makeVO(shows));
+        return "get-shows-div";
     }
 
     private ShowVO makeVO(List<Shows> shows) {

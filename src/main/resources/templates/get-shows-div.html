@@ -1,0 +1,24 @@
+<div class="show grid-sizer" th:each="show : ${shows.data}">
+    <div class="show-menu">
+        <a href="https://baidu.com"><span>添加</span></a>|<a href="http://csdn.com"><span>删除</span></a>
+    </div>
+    <img class="show-img" th:src="${show.preview}">
+    <div class="interact-info">
+        <div class="interact-data">
+            <i class="fa fa-heart" style="color: red"/> 533
+            <i class="fa fa-comments" style="color: mediumseagreen"/> 123
+        </div>
+        <div class="interact-users">
+            <img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/>
+            <img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/>
+            <img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/>
+        </div>
+    </div>
+    <div class="show-info">
+        <div class="user-info">
+            <img class="img-circle" th:src="${show.user.headerPicUrl}" alt="用户头像"/>
+            <div class="nickname"><a href="#" th:text="${show.user.userName}"></a></div>
+        </div>
+        <div class="show-content" th:text="${show.content}"></div>
+    </div>
+</div>
