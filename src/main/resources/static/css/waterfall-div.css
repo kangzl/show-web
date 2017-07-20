@@ -1,9 +1,10 @@
 .show-container {
     margin: 0 auto;
+    max-width: 1225px;
 }
 
 .show, .grid-sizer, .show-menu {
-    width: 226px;
+    width: 225px;
 }
 
 .grid-sizer {
@@ -18,6 +19,7 @@
  * Grid items
  */
 .show {
+    background: white;
     padding: 0px;
     border-width: 0px;
     list-style-type: none;
