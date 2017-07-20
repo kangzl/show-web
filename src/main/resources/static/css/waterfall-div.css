@@ -68,10 +68,24 @@ menu
     display: block;
 }
 
-.show-menu span {
-    width: 100px;
+.show-menu-btn {
+    width: 50%;
+    height: 35px;
+    float: left;
     font-size: 22px;
     text-align: center;
+}
+
+.show-menu-btn:hover {
+    background: rgba(0, 128, 128, 0.7);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.show-favorite {
+    border-left: 1px solid #F0F0F0;
 }
 
 /**

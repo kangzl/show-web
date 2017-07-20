@@ -1,6 +1,15 @@
 <div class="show grid-sizer" th:each="show : ${shows.data}">
     <div class="show-menu">
-        <a href="https://baidu.com"><span>添加</span></a>|<a href="http://csdn.com"><span>删除</span></a>
+        <a href="#">
+            <div class="show-menu-btn show-like">
+                点赞
+            </div>
+        </a>
+        <a href="#">
+            <div class="show-menu-btn show-favorite">
+                收藏
+            </div>
+        </a>
     </div>
     <img class="show-img" th:src="${show.preview}">
     <div class="interact-info">
