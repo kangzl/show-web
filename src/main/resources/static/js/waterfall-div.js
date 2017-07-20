@@ -21,6 +21,8 @@ var $grid = undefined;
             isFitWidth: true
         };
 
+    $loaderCircle.hide();
+
     function resetContainerWidth(event) {
         /*
         if (colW == undefined) {
@@ -62,7 +64,9 @@ var $grid = undefined;
      * Loads data from the API.
      */
     function loadData() {
-        $loaderCircle.show();
+        if (page != 1) {
+            $loaderCircle.show();
+        }
         $.ajax({
             url: apiURL,
             dataType: 'html',
