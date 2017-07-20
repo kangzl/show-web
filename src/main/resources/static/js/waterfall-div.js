@@ -119,3 +119,36 @@ var $grid = undefined;
     //rest Container Width
     resetContainerWidth();
 })(jQuery);
+
+
+function doFavorite(o, showId) {
+    //alert('收藏成功! id:' + showId);
+    //设置class
+    var i = $(o).find('i:first');
+    if (i.hasClass("fa-star-o")) {
+        //do
+        i.removeClass("fa-star-o");
+        i.addClass("fa-star");
+        i.css("color", "red");
+    } else {
+        //cancel
+        i.removeClass("fa-star");
+        i.addClass("fa-star-o");
+    }
+}
+
+function doLike(o, showId) {
+    //alert('点赞成功! id:' + showId);
+    //设置class
+    var i = $(o).find('i:first');
+    if (i.hasClass("fa-heart-o")) {
+        //do
+        i.removeClass("fa-heart-o");
+        i.addClass("fa-heart");
+        i.css("color", "red");
+    } else {
+        //cancel
+        i.removeClass("fa-heart");
+        i.addClass("fa-heart-o");
+    }
+}

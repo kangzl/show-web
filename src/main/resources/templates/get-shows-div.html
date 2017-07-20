@@ -1,15 +1,11 @@
 <div class="show grid-sizer" th:each="show : ${shows.data}">
     <div class="show-menu">
-        <a href="#">
-            <div class="show-menu-btn show-like">
-                点赞
-            </div>
-        </a>
-        <a href="#">
-            <div class="show-menu-btn show-favorite">
-                收藏
-            </div>
-        </a>
+        <div class="show-menu-btn show-like" th:onclick="'javascript:doLike(this ,' + ${show.id} + ')'">
+            点赞 <i class="fa fa-heart-o"></i>
+        </div>
+        <div class="show-menu-btn show-favorite" th:onclick="'javascript:doFavorite(this ,' + ${show.id} + ')'">
+            收藏 <i class="fa fa-star-o"></i>
+        </div>
     </div>
     <img class="show-img" th:src="${show.preview}">
     <div class="interact-info">
