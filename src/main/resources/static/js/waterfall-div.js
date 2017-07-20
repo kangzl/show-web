@@ -6,7 +6,7 @@ var $grid = undefined;
     var page = 1,
         isLoading = false,
         apiURL = 'api/get-shows-div.htm',
-        container = '.container',
+        container = '.show-container',
         $loaderCircle = $('#loaderCircle'),
         options = {
             itemSelector: '.show',
@@ -14,7 +14,8 @@ var $grid = undefined;
             gutter: 20,
             isAnimated: true,
             transitionDuration: '0.5s',
-            isFitWidth:true
+            isFitWidth:true,
+            resize:true
         };
 
     /**
