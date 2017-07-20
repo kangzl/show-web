@@ -10,17 +10,19 @@
     <title>Wookmark API Test</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
     <!-- CSS Reset -->
-    <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css"/>
+
+    <link rel="stylesheet" href="layui/css/layui.css"/>
 
     <!-- Global CSS for the page and tiles -->
-    <link rel="stylesheet" href="../css/wookmark/main.css"/>
+    <link rel="stylesheet" href="css/wookmark/main.css"/>
 
-    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
 
-    <link rel="stylesheet" href="../css/waterfall.css"/>
+    <link rel="stylesheet" href="css/waterfall.css"/>
 
 </head>
 
@@ -29,7 +31,7 @@
     <header>
         <h1>Wookmark Endless Scroll Example</h1>
         <p>Scroll down to see the infinite scroll effect.</p>
-        <p><a href="../index.html">Back to overview</a></p>
+        <p><a href="index.html">Back to overview</a></p>
     </header>
 
     <div role="main">
@@ -46,18 +48,21 @@
 </div>
 
 <!-- include jQuery -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <!-- Include the imagesLoaded plug-in -->
-<script src="../bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
 
 <!-- Include the plug-in -->
-<script src="../js/wookmark/wookmark.min.js"></script>
+<script src="js/wookmark/wookmark.min.js"></script>
 
-<script src="../js/jqueryplugins/jquery.collapser.min.js"></script>
+<script src="js/jqueryplugins/jquery.collapser.min.js"></script>
+
+<script src="layui/layui.js"></script>
+
 
 <!-- Once the page is loaded, initalize the plug-in. -->
 <script type="text/javascript">
@@ -65,11 +70,12 @@
         var handler = null,
             page = 1,
             isLoading = false,
-            apiURL = 'api/get-shows.json',
+            apiURL = 'api/get-shows.htm',
             container = '#container',
             $loaderCircle = $('#loaderCircle'),
             wookmark = undefined,
             options = {
+                align: 'center',
                 offset: 20, // Optional, the distance between grid items
                 verticalOffset: 20,
                 outerOffset: 10,
@@ -109,7 +115,7 @@
             $loaderCircle.show();
             $.ajax({
                 url: apiURL,
-                dataType: 'json',
+                dataType: 'html',
                 data: {page: page}, // Page parameter to make sure we load new data
                 success: onLoadData
             });
@@ -119,27 +125,10 @@
          */
         function onLoadData(result) {
             isLoading = true;
-            var data = result.data;
             $loaderCircle.hide();
             // Increment page index for future calls.
             page++;
-            // Create HTML for the images.
-            var html = '';
-            var i = 0, length = data.length, show;
-            for (; i < length; i++) {
-                show = data[i];
-                html += '<li class="show">';
-                html += '<div class="show-menu"><a href="https://baidu.com"><span>添加</span></a>|<a href="http://csdn.com"><span>删除</span></a></div>';
-                // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
-                html += '<img class="show-img" src="' + show.preview + '">';
-                // Image title.
-                var interactInfo = '<div class="interact-info"><div class="interact-data"><i class="fa fa-heart" style="color: red"/> 533 <i class="fa fa-comments" style="color: mediumseagreen"/> 123</div><div class="interact-users"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/></div></div>';
-                var showContent = '<div class="show-info"><div class="user-info"><img class="img-circle" src="//ae01.alicdn.com/kf/UTB8EgHRbGrFXKJk43Ovq6ybnpXaV.jpg_50x50.jpg" alt="头像"/><div class="nickname"><a href="#">nick name</a></div></div><p class="show-content">' + show.content + '</p></div>';
-                html += interactInfo + showContent;
-                html += '</li>';
-            }
-            // Add image HTML to the page.
-            $(container).append(html);
+            $(container).append(result);
             // Apply layout.
             applyLayout();
 
