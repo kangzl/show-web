@@ -8,15 +8,41 @@ var $grid = undefined;
         apiURL = 'api/get-shows-div.htm',
         container = '.show-container',
         $loaderCircle = $('#loaderCircle'),
+        $body = $('body'),
+        colW = 225,
+        columnNum,
+        gutter = 20,
         options = {
             itemSelector: '.show',
             columnWidth: '.grid-sizer',
-            gutter: 20,
+            gutter: gutter,
             isAnimated: true,
             transitionDuration: '0.5s',
-            isFitWidth:true,
-            resize:true
+            isFitWidth: true
         };
+
+    function resetContainerWidth(event) {
+        /*
+        if (colW == undefined) {
+            do {
+                colW = $('.show:first').width();//动态获取宽度
+            }
+            while ($('.show:first').length == 0)
+            alert(colW);
+        }*/
+        // check if columns has changed
+        var currentColumns = Math.floor(( $body.width()) / colW);
+        if (currentColumns !== columnNum) {
+            // set new column count
+            columnNum = currentColumns;
+            // apply width to container manually, then trigger relayout
+            var marginSize = (columnNum - 1) * gutter;
+            $(container).width(columnNum * colW + marginSize);
+            if ($grid != undefined) {
+                $grid.masonry('layout');
+            }
+        }
+    };
 
     /**
      * When scrolled all the way to the bottom, add more tiles.
@@ -44,6 +70,7 @@ var $grid = undefined;
             success: onLoadData
         });
     };
+
     /**
      * Receives data from the API, creates HTML for images and updates the layout
      */
@@ -66,7 +93,6 @@ var $grid = undefined;
             $grid.imagesLoaded().done(function () {
                 $grid.masonry('layout');
             });
-
         }
 
         $('.show-content').each(function () {
@@ -86,6 +112,10 @@ var $grid = undefined;
     };
     // Capture scroll event.
     $(document).bind('scroll', onScroll);
+
+    $(window).on("debouncedresize", resetContainerWidth);// trigger resize to set container width
     // Load first data from the API.
     loadData();
+    //rest Container Width
+    resetContainerWidth();
 })(jQuery);

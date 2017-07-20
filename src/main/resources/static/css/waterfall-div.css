@@ -1,6 +1,6 @@
 .show-container {
     margin: 0 auto;
-    max-width: 1225px;
+    max-width: 1220px;
 }
 
 .show, .grid-sizer, .show-menu {
@@ -59,9 +59,9 @@ menu
     border-radius: 3px;
     position: absolute;
     background: #b3b3b3;
-    filter: alpha(Opacity=50);
-    -moz-opacity: 0.5;
-    opacity: 0.5;
+    filter: alpha(Opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;
 }
 
 .show:hover > .show-menu {
@@ -69,7 +69,7 @@ menu
 }
 
 .show-menu span {
-    width: 50px;
+    width: 100px;
     font-size: 22px;
     text-align: center;
 }
@@ -158,6 +158,6 @@ show-content
 }
 
 .showmore {
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 14px;
 }
