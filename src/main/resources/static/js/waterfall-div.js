@@ -172,6 +172,10 @@ function doLike(o, showId) {
 }
 
 function showDetail(showId) {
+    renderDetail(showId)
+}
+
+function renderDetail(showId) {
     //alert("detail:" + showId);
     var width = $(containerSelecter).width(), indexFirst, indexSecond, thirdSecond;
     layui.use('layer', function () {
@@ -184,18 +188,24 @@ function showDetail(showId) {
             title: false,
             shade: 0.6,
             success: function (layero, index) {
+                $("body").css("overflow", "hidden");
                 //console.log(layero, index);
                 layui.use('layer', function () {
+                    var topOffset = 50;
+                    var height = $(document.body).height() - topOffset;
                     indexSecond = layer.open({
-                        type: 1,
+                        type: 2,
                         shadeClose: true,
                         closeBtn: 0,
-                        area: '65%',
-                        offset: ['50px', '8%'],
+                        area: ['65%', height + 'px'],
+                        offset: [topOffset + 'px', '8%'],
                         title: false,
+                        anim: 0,
+                        isOutAnim: false,
                         shade: 0,
-                        content: 'ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>'
+                        content: 'api/get-show-detail.htm?showId=' + showId
                     });
+                    //layer.iframeAuto(indexSecond);
                 });
                 layui.use('layer', function () {
                     thirdSecond = layer.open({
@@ -205,12 +215,15 @@ function showDetail(showId) {
                         area: ['17%', '20%'],
                         offset: ['50px', '75%'],
                         title: false,
+                        anim: 0,
+                        isOutAnim: false,
                         shade: 0,
                         content: 'user skskkskskskskk'
                     });
                 });
             }, end: function () {
                 layer.closeAll();
+                $("body").css("overflow", "auto");
             }
         });
     });

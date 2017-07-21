@@ -1,0 +1,4 @@
+<img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}"/>
+<a th:href="${detail.productUrl}">商品链接</a>
+评价:
+<span th:text="${detail.content}"></span>
