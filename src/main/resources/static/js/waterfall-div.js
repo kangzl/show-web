@@ -4,6 +4,7 @@
 var $grid = undefined;
 var containerSelecter = '.show-container';
 var layer = undefined;
+
 (function ($) {
     var page = 1,
         isLoading = false,
@@ -48,6 +49,15 @@ var layer = undefined;
                 $grid.masonry('layout');
             }
         }
+    };
+
+    /**
+     * 重置窗口
+     * @param event
+     */
+    function restWindows(event) {
+        resetContainerWidth(event);
+        restDetailIframeHeight();
     };
 
     /**
@@ -121,7 +131,7 @@ var layer = undefined;
     // Capture scroll event.
     $(document).bind('scroll', onScroll);
 
-    $(window).on("debouncedresize", resetContainerWidth);// trigger resize to set container width
+    $(window).on("debouncedresize", restWindows);// trigger resize to set container width
     // Load first data from the API.
     loadData();
     //rest Container Width
@@ -138,6 +148,10 @@ var layer = undefined;
 
 })(jQuery);
 
+function restDetailIframeHeight() {
+    var windowHeight = $(window).height();
+    $("#detailIframe iframe").height(windowHeight - topOffset);
+}
 
 function doFavorite(o, showId) {
     //alert('收藏成功! id:' + showId);
@@ -175,6 +189,8 @@ function showDetail(showId) {
     renderDetail(showId)
 }
 
+var topOffset = 50;
+
 function renderDetail(showId) {
     //alert("detail:" + showId);
     var width = $(containerSelecter).width(), indexFirst, indexSecond, thirdSecond;
@@ -189,23 +205,21 @@ function renderDetail(showId) {
             shade: 0.6,
             isOutAnim: false,
             success: function (layero, index) {
-                //$("body").css("overflow", "hidden");
                 layui.use('layer', function () {
-                    var topOffset = 50;
                     //var height = $(document.body).height() - topOffset;
                     indexSecond = layer.open({
+                        id: 'detailIframe',
                         type: 2,
                         shadeClose: true,
                         closeBtn: 0,
-                        area: ['65%', 'auto'],
-                        offset: [topOffset + 'px', '8%'],
+                        area: '65%',
+                        offset: [topOffset + 'px', '7.8%'],
                         title: false,
                         anim: 0,
                         isOutAnim: false,
                         shade: 0,
                         content: 'api/get-show-detail.htm?showId=' + showId
                     });
-                    //layer.iframeAuto(indexSecond);
                 });
                 layui.use('layer', function () {
                     thirdSecond = layer.open({
@@ -213,7 +227,7 @@ function renderDetail(showId) {
                         shadeClose: true,
                         closeBtn: 0,
                         area: ['17%', '20%'],
-                        offset: ['50px', '75%'],
+                        offset: ['50px', '75.2%'],
                         title: false,
                         anim: 0,
                         isOutAnim: false,
@@ -223,7 +237,6 @@ function renderDetail(showId) {
                 });
             }, end: function () {
                 layer.closeAll();
-                //$("body").css("overflow", "auto");
             }
         });
     });

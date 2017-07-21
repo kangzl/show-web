@@ -1,4 +1,27 @@
-<img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}"/>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An example how to achieve a endless scroll effect with Wookmark"/>
+    <meta name="author" content="Christoph Ono, Sebastian Helzle"/>
+    <title>Masonry API Test</title>
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+</head>
+
+<body>
+<img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" style="max-width: 640px;"/>
 <a th:href="${detail.productUrl}">商品链接</a>
 评价:
 <span th:text="${detail.content}"></span>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="application/javascript">
+    $(document).ready(function () {
+        window.top.window.restDetailIframeHeight();
+    });
+</script>
+</body>
+</html>
