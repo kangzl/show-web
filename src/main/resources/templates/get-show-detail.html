@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/main.css"/>
 </head>
 
-<body>
+<body onscroll="moveOn()">
 <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" style="max-width: 640px;"/>
 <a th:href="${detail.productUrl}">商品链接</a>
 评价:
@@ -21,7 +21,19 @@
 <script type="application/javascript">
     $(document).ready(function () {
         window.top.window.restDetailIframeHeight();
+        i = 0;
     });
+
+    var iframeDiv = $(window.parent.document).find("#detailIframe").parent();
+
+    function moveOn() {
+        if (iframeDiv.position().top != 0) {
+            iframeDiv.animate({top: "0px"});
+            window.top.window.topOffset = 0;
+            window.top.window.restDetailIframeHeight();
+        }
+    }
+
 </script>
 </body>
 </html>

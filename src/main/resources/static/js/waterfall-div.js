@@ -185,11 +185,13 @@ function doLike(o, showId) {
     }
 }
 
+var topOffset = undefined;
+
 function showDetail(showId) {
+    topOffset = 50;
     renderDetail(showId)
 }
 
-var topOffset = 50;
 
 function renderDetail(showId) {
     //alert("detail:" + showId);
