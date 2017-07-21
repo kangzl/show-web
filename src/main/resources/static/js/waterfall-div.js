@@ -182,22 +182,21 @@ function renderDetail(showId) {
         layer = layui.layer;
         indexFirst = layer.open({
             type: 1,
-            scrollbar: false,
+            scrollbar: true,
             shadeClose: true,
             closeBtn: 0,
             title: false,
             shade: 0.6,
             success: function (layero, index) {
-                $("body").css("overflow", "hidden");
-                //console.log(layero, index);
+                //$("body").css("overflow", "hidden");
                 layui.use('layer', function () {
                     var topOffset = 50;
-                    var height = $(document.body).height() - topOffset;
+                    //var height = $(document.body).height() - topOffset;
                     indexSecond = layer.open({
                         type: 2,
                         shadeClose: true,
                         closeBtn: 0,
-                        area: ['65%', height + 'px'],
+                        area: ['65%', 'auto'],
                         offset: [topOffset + 'px', '8%'],
                         title: false,
                         anim: 0,
@@ -223,7 +222,7 @@ function renderDetail(showId) {
                 });
             }, end: function () {
                 layer.closeAll();
-                $("body").css("overflow", "auto");
+                //$("body").css("overflow", "auto");
             }
         });
     });
