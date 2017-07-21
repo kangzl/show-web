@@ -2,11 +2,13 @@
  * Created by kingfish on 2017/7/17.
  */
 var $grid = undefined;
+var containerSelecter = '.show-container';
+var layer = undefined;
 (function ($) {
     var page = 1,
         isLoading = false,
         apiURL = 'api/get-shows-div.htm',
-        container = '.show-container',
+        container = containerSelecter,
         $loaderCircle = $('#loaderCircle'),
         $body = $('body'),
         colW = 225,
@@ -33,7 +35,9 @@ var $grid = undefined;
             alert(colW);
         }*/
         // check if columns has changed
-        var currentColumns = Math.floor(( $body.width()) / colW);
+        var currentColumns = Math.floor(( $body.width()) / colW) - 1;
+        if (currentColumns == 0)
+            currentColumns = 1;
         if (currentColumns !== columnNum) {
             // set new column count
             columnNum = currentColumns;
@@ -122,6 +126,16 @@ var $grid = undefined;
     loadData();
     //rest Container Width
     resetContainerWidth();
+
+    //esc 关闭弹出层
+    $(window).keyup(function (e) {
+        if (layer != undefined) {
+            if (e.keyCode == 27) {
+                layer.closeAll();
+            }
+        }
+    });
+
 })(jQuery);
 
 
@@ -155,4 +169,36 @@ function doLike(o, showId) {
         i.removeClass("fa-heart");
         i.addClass("fa-heart-o");
     }
+}
+
+function showDetail(showId) {
+    //alert("detail:" + showId);
+    var width = $(containerSelecter).width(), indexFirst, indexSecond;
+    layui.use('layer', function () {
+        layer = layui.layer;
+        indexFirst = layer.open({
+            type: 1,
+            scrollbar: false,
+            shadeClose: true,
+            closeBtn: 0,
+            title: false,
+            shade: 0.6,
+            success: function (layero, index) {
+                //console.log(layero, index);
+                layui.use('layer', function () {
+                    indexSecond = layer.open({
+                        type: 1,
+                        scrollbar: false,
+                        shadeClose: true,
+                        closeBtn: 0,
+                        title: false,
+                        shade: 0,
+                        content: 'ssssssssss'
+                    });
+                });
+            }, end: function () {
+                layer.closeAll();
+            }
+        });
+    });
 }

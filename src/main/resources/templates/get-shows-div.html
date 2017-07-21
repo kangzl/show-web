@@ -7,7 +7,7 @@
             收藏 <i class="fa fa-star-o"></i>
         </div>
     </div>
-    <img class="show-img" th:src="${show.preview}">
+    <img class="show-img" th:src="${show.preview}" th:onclick="'javascript:showDetail(' + ${show.id} + ')'">
     <div class="interact-info">
         <div class="interact-data">
             <i class="fa fa-heart" style="color: red"/> 533
