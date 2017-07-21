@@ -187,6 +187,7 @@ function renderDetail(showId) {
             closeBtn: 0,
             title: false,
             shade: 0.6,
+            isOutAnim: false,
             success: function (layero, index) {
                 //$("body").css("overflow", "hidden");
                 layui.use('layer', function () {
