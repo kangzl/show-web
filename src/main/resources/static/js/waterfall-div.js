@@ -173,7 +173,7 @@ function doLike(o, showId) {
 
 function showDetail(showId) {
     //alert("detail:" + showId);
-    var width = $(containerSelecter).width(), indexFirst, indexSecond;
+    var width = $(containerSelecter).width(), indexFirst, indexSecond, thirdSecond;
     layui.use('layer', function () {
         layer = layui.layer;
         indexFirst = layer.open({
@@ -188,12 +188,25 @@ function showDetail(showId) {
                 layui.use('layer', function () {
                     indexSecond = layer.open({
                         type: 1,
-                        scrollbar: false,
                         shadeClose: true,
                         closeBtn: 0,
+                        area: '65%',
+                        offset: ['50px', '8%'],
                         title: false,
                         shade: 0,
-                        content: 'ssssssssss'
+                        content: 'ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>ssssssssss<br><br><br><br><br><br><br>'
+                    });
+                });
+                layui.use('layer', function () {
+                    thirdSecond = layer.open({
+                        type: 1,
+                        shadeClose: true,
+                        closeBtn: 0,
+                        area: ['17%', '20%'],
+                        offset: ['50px', '75%'],
+                        title: false,
+                        shade: 0,
+                        content: 'user skskkskskskskk'
                     });
                 });
             }, end: function () {
