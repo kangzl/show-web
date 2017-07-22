@@ -1,5 +1,5 @@
 <div class="show-detail-content all-border-radius">
-    <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}"/>
+    <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
     <a th:href="${detail.productUrl}" target="_blank">商品链接</a>
     PS:<br>
     <span th:text="${detail.content}"></span>
