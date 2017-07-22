@@ -207,37 +207,9 @@ function renderDetail(showId) {
             shade: 0.6,
             isOutAnim: false,
             success: function (layero, index) {
-                layui.use('layer', function () {
-                    //var height = $(document.body).height() - topOffset;
-                    indexSecond = layer.open({
-                        id: 'detailIframe',
-                        type: 2,
-                        shadeClose: true,
-                        closeBtn: 0,
-                        area: '65%',
-                        offset: [topOffset + 'px', '7.8%'],
-                        title: false,
-                        anim: 4,
-                        isOutAnim: false,
-                        shade: 0,
-                        content: 'api/get-show-detail.htm?showId=' + showId
-                    });
-                });
-                layui.use('layer', function () {
-                    thirdSecond = layer.open({
-                        type: 1,
-                        shadeClose: true,
-                        closeBtn: 0,
-                        area: ['17%', '20%'],
-                        offset: ['50px', '75.2%'],
-                        title: false,
-                        anim: 0,
-                        isOutAnim: false,
-                        shade: 0,
-                        content: 'user skskkskskskskk'
-                    });
-                });
+                $('.show-detail').show();
             }, end: function () {
+                $('.show-detail').hide();
                 layer.closeAll();
             }
         });

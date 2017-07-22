@@ -1,0 +1,9 @@
+.show-detail {
+    display: none;
+    position:absolute;
+    z-index: 99999999;
+    height: 100%;
+    width: 65%;
+    background-color: #2aabd2;
+    margin-left: 7.5%;
+}
