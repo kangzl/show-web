@@ -35,6 +35,7 @@ detail菜单
     line-height: 65px;
     text-align: center;
     border-left: 1px solid #efefef;
+    color: #0088A8;
     /*border-right: 1px solid #efefef;*/
 }
 
@@ -43,6 +44,7 @@ detail菜单
 }
 
 .detail-menu-btn:hover {
+    color: #fff;
     background: rgba(0, 128, 128, 0.7);
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
