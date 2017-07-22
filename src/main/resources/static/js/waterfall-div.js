@@ -210,14 +210,28 @@ function renderDetail(showId) {
                 $('body').css('overflow-y', 'hidden');
                 $('body').prepend('<div class="container show-detail"></div>');
                 $('.show-detail').css('margin-top', $('body').scrollTop());
-                $('.show-detail').append('内容讷讷呢<br><br><br>sdf<br><br><br><br><br><br>sss测试<br><br><br><br><br><br><br><br><br><br><br>s;;ll;0we<br><br><br><br><br><br><br><br><br><br><br>tt搜索<br><br><br>sdf<br><br><br><br><br><br>sss测试搜索<br><br><br><br><br><br><br><br><br><br><br>s;;ll;0we<br><br><br><br><br><br><br><br><br><br><br>');
+                $.ajax({
+                    url: 'api/get-show-detail.htm',
+                    dataType: 'html',
+                    data: {showId: showId}, // Page parameter to make sure we load new data
+                    error: function () {
+                        resetAll();
+                    },
+                    success: function (html) {
+                        $('.show-detail').append(html);
+                    }
+                });
                 $('.show-detail').show();
             }, end: function () {
-                $('.show-detail').hide();
-                $('.show-detail').remove()
-                layer.closeAll();
-                $('body').css('overflow-y', 'auto');
+                resetAll();
             }
         });
     });
+}
+
+function resetAll() {
+    $('.show-detail').hide();
+    $('.show-detail').remove()
+    layer.closeAll();
+    $('body').css('overflow-y', 'auto');
 }

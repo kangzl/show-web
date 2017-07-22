@@ -1,49 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="An example how to achieve a endless scroll effect with Wookmark"/>
-    <meta name="author" content="Christoph Ono, Sebastian Helzle"/>
-    <title>Masonry API Test</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <!-- CSS Reset -->
-    <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
-    <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../css/detail.css"/>
-</head>
-
-<body onscroll="moveOn()">
-<div class="container">
-    <a th:href="${detail.productUrl}" target="_blank"><img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}"/></a>
+<div class="show-detail-content all-border-radius">
+    <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}"/>
     <a th:href="${detail.productUrl}" target="_blank">商品链接</a>
-    <div class="show-content">
-        PS:<br>
-        <span th:text="${detail.content}"></span>
-    </div>
+    PS:<br>
+    <span th:text="${detail.content}"></span>
 </div>
 
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="application/javascript">
-    $(document).ready(function () {
-        window.top.window.restDetailIframeHeight();
-        i = 0;
-    });
+<div class="show-detail-transparent"></div>
 
-    var iframeDiv = $(window.parent.document).find("#detailIframe").parent();
+<div class="show-detail-product-info all-border-radius">
+    商品信息:
+</div>
 
-    function moveOn() {
-        if (iframeDiv.position().top != 0) {
-            iframeDiv.animate({top: "0px"});
-            window.top.window.topOffset = 0;
-            window.top.window.restDetailIframeHeight();
-        }
-    }
+<div class="show-detail-transparent"></div>
 
-</script>
-</body>
-</html>
+<div class="show-detail-product-msg all-border-radius">
+    留言:
+</div>
