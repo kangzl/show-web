@@ -15,10 +15,13 @@ a {
 }
 
 .all-border-radius {
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+}
+
+.none-top-border-radius {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 0 0 3px 3px;
 }

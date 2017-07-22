@@ -208,7 +208,7 @@ function renderDetail(showId) {
             isOutAnim: false,
             success: function (layero, index) {
                 $('body').css('overflow-y', 'hidden');
-                $('body').prepend('<div class="container show-detail detail-shadow"></div>');
+                $('body').prepend('<div class="container show-detail"></div>');
                 $('body').prepend('<div class="container show-detail-user all-border-radius detail-shadow"></div>');
                 $('.show-detail').css('margin-top', $('body').scrollTop() + 50);
                 //$('.show-detail-user').css('margin-top', $('body').scrollTop() + 50);

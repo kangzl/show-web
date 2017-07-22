@@ -1,4 +1,7 @@
-<div class="show-detail-content all-border-radius detail-shadow">
+<div class="detail-menu detail-shadow">
+    各种菜单....
+</div>
+<div class="show-detail-content none-top-border-radius detail-shadow">
     <a th:href="${detail.productUrl}" target="_blank">
         <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
     </a>
