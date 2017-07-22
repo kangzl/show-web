@@ -22,9 +22,32 @@ detail菜单
     width: 100%;
     background-color: #FFF;
     border-bottom: 1px solid #efefef;
-    filter: alpha(Opacity=90);
-    -moz-opacity: 0.9;
-    opacity: 0.9;
+    filter: alpha(Opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.detail-menu-btn {
+    width: 16.66%;
+    height: 65px;
+    float: left;
+    font-size: 22px;
+    line-height: 65px;
+    text-align: center;
+    border-left: 1px solid #efefef;
+    /*border-right: 1px solid #efefef;*/
+}
+
+.dm-first-btn {
+    border-left: 0px;
+}
+
+.detail-menu-btn:hover {
+    background: rgba(0, 128, 128, 0.7);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 /**
