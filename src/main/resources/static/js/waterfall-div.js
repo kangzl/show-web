@@ -4,6 +4,7 @@
 var $grid = undefined;
 var containerSelecter = '.show-container';
 var layer = undefined;
+var detailMarginTop = 50;
 
 (function ($) {
     var page = 1,
@@ -58,6 +59,7 @@ var layer = undefined;
     function restWindows(event) {
         resetContainerWidth(event);
         //restDetailIframeHeight();
+        restDetailMenuWidth();
     };
 
     /**
@@ -192,7 +194,6 @@ function showDetail(showId) {
     renderDetail(showId)
 }
 
-
 function renderDetail(showId) {
     //alert("detail:" + showId);
     var width = $(containerSelecter).width(), indexFirst, indexSecond, thirdSecond;
@@ -210,9 +211,9 @@ function renderDetail(showId) {
                 $('body').css('overflow-y', 'hidden');
                 $('body').prepend('<div class="container show-detail"></div>');
                 $('body').prepend('<div class="container show-detail-user all-border-radius detail-shadow"></div>');
-                $('.show-detail').css('margin-top', $('body').scrollTop() + 50);
+                $('.show-detail').css('margin-top', $('body').scrollTop() + detailMarginTop);
                 //$('.show-detail-user').css('margin-top', $('body').scrollTop() + 50);
-                $('.show-detail-user').animate({marginTop: $('body').scrollTop() + 50});
+                $('.show-detail-user').animate({marginTop: $('body').scrollTop() + detailMarginTop});
                 $.ajax({
                     url: 'api/get-show-detail.htm',
                     dataType: 'html',
@@ -226,9 +227,10 @@ function renderDetail(showId) {
                 });
                 $('.show-detail-user').slideDown('fast');
                 $('.show-detail').slideDown('fast');
-                //注册滚动上升事件
+                //注册滚动上升事件并固定于顶部
                 $('.show-detail').scroll(function () {
                     $('.show-detail').animate({marginTop: $('body').scrollTop()});
+                    $('.detail-menu').animate({marginTop: 0});
                 });
             }, end: function () {
                 resetAll();

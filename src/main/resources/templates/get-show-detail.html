@@ -1,16 +1,17 @@
-<div class="detail-menu none-buttom-border-radius detail-shadow">
-    各种菜单....
-</div>
-<div class="show-detail-content none-top-border-radius detail-shadow">
-    <a th:href="${detail.productUrl}" target="_blank">
-        <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
-    </a>
-    <div class="show-detail-content-inner">
-        PS:<br>
-        <span th:text="${detail.content}"></span>
+<div class="detail-shadow">
+    <div class="navbar-fixed-top detail-menu none-top-border-radius">
+        各种菜单....
+    </div>
+    <div class="show-detail-content none-top-border-radius">
+        <a th:href="${detail.productUrl}" target="_blank">
+            <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
+        </a>
+        <div class="show-detail-content-inner">
+            PS:<br>
+            <span th:text="${detail.content}"></span>
+        </div>
     </div>
 </div>
-
 <div class="show-detail-transparent"></div>
 
 <div class="show-detail-product-info all-border-radius detail-shadow">
@@ -22,3 +23,18 @@
 <div class="show-detail-product-msg all-border-radius detail-shadow">
     留言:
 </div>
+
+<script type="application/javascript">
+    function restDetailMenuWidth() {
+        //重置detail菜单宽度和位置
+        var showDetailWidth = $('.show-detail').width();
+        var paddingLeft = parseInt($('.show-detail').css('paddingLeft'));
+        var marginLeft = parseInt($('.show-detail').css('marginLeft'));
+        var menuMarginLeft = marginLeft + paddingLeft;
+        $('.detail-menu').css('marginLeft', menuMarginLeft + 1);
+        $('.detail-menu').width(showDetailWidth);
+    }
+
+    restDetailMenuWidth();
+    $('.detail-menu').css('marginTop', detailMarginTop);
+</script>
