@@ -211,7 +211,8 @@ function renderDetail(showId) {
                 $('body').prepend('<div class="container show-detail"></div>');
                 $('body').prepend('<div class="container show-detail-user all-border-radius"></div>');
                 $('.show-detail').css('margin-top', $('body').scrollTop() + 50);
-                $('.show-detail-user').css('margin-top', $('body').scrollTop() + 50);
+                //$('.show-detail-user').css('margin-top', $('body').scrollTop() + 50);
+                $('.show-detail-user').animate({marginTop: $('body').scrollTop() + 50});
                 $.ajax({
                     url: 'api/get-show-detail.htm',
                     dataType: 'html',
@@ -223,8 +224,8 @@ function renderDetail(showId) {
                         $('.show-detail').append(html);
                     }
                 });
-                $('.show-detail').show('normal');
-                $('.show-detail-user').show('normal');
+                $('.show-detail').slideDown('fast');
+                $('.show-detail-user').slideDown('fast');
                 $('.show-detail').scroll(function () {
                     $('.show-detail').animate({marginTop: $('body').scrollTop()});
                 });
@@ -236,8 +237,10 @@ function renderDetail(showId) {
 }
 
 function resetAll() {
+    //$('.show-detail').slideUp('fast');
     $('.show-detail').hide();
     $('.show-detail').remove();
+    //$('.show-detail-user').slideUp('fast');
     $('.show-detail-user').hide();
     $('.show-detail-user').remove();
     layer.closeAll();
