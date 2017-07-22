@@ -209,7 +209,9 @@ function renderDetail(showId) {
             success: function (layero, index) {
                 $('body').css('overflow-y', 'hidden');
                 $('body').prepend('<div class="container show-detail"></div>');
-                $('.show-detail').css('margin-top', $('body').scrollTop());
+                $('body').prepend('<div class="container show-detail-user all-border-radius"></div>');
+                $('.show-detail').css('margin-top', $('body').scrollTop() + 50);
+                $('.show-detail-user').css('margin-top', $('body').scrollTop() + 50);
                 $.ajax({
                     url: 'api/get-show-detail.htm',
                     dataType: 'html',
@@ -221,7 +223,11 @@ function renderDetail(showId) {
                         $('.show-detail').append(html);
                     }
                 });
-                $('.show-detail').show();
+                $('.show-detail').show('normal');
+                $('.show-detail-user').show('normal');
+                $('.show-detail').scroll(function () {
+                    $('.show-detail').animate({marginTop: $('body').scrollTop()});
+                });
             }, end: function () {
                 resetAll();
             }
@@ -231,7 +237,9 @@ function renderDetail(showId) {
 
 function resetAll() {
     $('.show-detail').hide();
-    $('.show-detail').remove()
+    $('.show-detail').remove();
+    $('.show-detail-user').hide();
+    $('.show-detail-user').remove();
     layer.closeAll();
     $('body').css('overflow-y', 'auto');
 }

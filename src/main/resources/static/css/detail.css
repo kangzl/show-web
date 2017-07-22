@@ -1,7 +1,7 @@
 .show-detail {
     display: none;
     position: absolute;
-    z-index: 99999999;
+    z-index: 99999998;
     height: 100%;
     width: 65%;
     margin-left: 7%;
@@ -35,4 +35,17 @@
     height: 300px;
     margin-bottom: 25px;
     background-color: white;
+}
+
+/**
+user部分
+ */
+.show-detail-user {
+    display: block;
+    position: absolute;
+    z-index: 99999999;
+    height: 200px;
+    width: 250px;
+    background-color: white;
+    margin-left: 75%;
 }
