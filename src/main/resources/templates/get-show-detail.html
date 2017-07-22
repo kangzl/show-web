@@ -1,21 +1,21 @@
 <div class="detail-shadow">
     <div class="navbar-fixed-top detail-menu none-top-border-radius">
-        <a href="#">
+        <a href="#show-detail-pic-anchor" class="a-anchor">
             <div class="detail-menu-btn detail-menu-pic-btn dm-first-btn">
                 照片
             </div>
         </a>
-        <a href="#">
+        <a href="#show-detail-eval-anchor" class="a-anchor">
             <div class="detail-menu-btn detail-menu-eval-btn">
                 买家说
             </div>
         </a>
-        <a href="#">
+        <a href="#show-detail-product-anchor" class="a-anchor">
             <div class="detail-menu-btn detail-menu-product-btn">
                 商品信息
             </div>
         </a>
-        <a href="#">
+        <a href="#show-detail-msg-anchor" class="a-anchor">
             <div class="detail-menu-btn detail-menu-msg-btn">
                 评论
             </div>
@@ -32,10 +32,12 @@
         </a>
     </div>
     <div class="show-detail-content none-top-border-radius">
-        <a th:href="${detail.productUrl}" target="_blank">
-            <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
-        </a>
-        <div class="show-detail-content-inner">
+        <div id="show-detail-pic-anchor">
+            <a th:href="${detail.productUrl}" target="_blank">
+                <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
+            </a>
+        </div>
+        <div id="show-detail-eval-anchor" class="show-detail-content-inner">
             PS:<br>
             <span th:text="${detail.content}"></span>
         </div>
@@ -43,13 +45,13 @@
 </div>
 <div class="show-detail-transparent"></div>
 
-<div class="show-detail-product-info all-border-radius detail-shadow">
+<div id="show-detail-product-anchor" class="show-detail-product-info all-border-radius detail-shadow">
     商品信息:
 </div>
 
 <div class="show-detail-transparent"></div>
 
-<div class="show-detail-product-msg all-border-radius detail-shadow">
+<div id="show-detail-msg-anchor" class="show-detail-product-msg all-border-radius detail-shadow">
     留言:
 </div>
 
@@ -63,6 +65,20 @@
         $('.detail-menu').css('marginLeft', menuMarginLeft + 1);
         $('.detail-menu').width(showDetailWidth);
     }
+
+    $(document).ready(function () {
+        $("a.a-anchor").click(function () {
+            var topValue = $($(this).attr("href")).offset().top;
+            //alert(topValue);
+            $('.show-detail').animate({
+                scrollTop: topValue + "px"
+            }, {
+                duration: 500,
+                easing: "swing"
+            });
+            return true;
+        });
+    });
 
     restDetailMenuWidth();
     $('.detail-menu').css('marginTop', detailMarginTop);
