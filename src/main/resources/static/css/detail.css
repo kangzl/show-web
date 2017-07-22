@@ -8,6 +8,9 @@
     overflow-y: auto;
 }
 
+/**
+content
+ */
 .show-detail-content {
     width: 100%;
     background-color: white;
@@ -17,6 +20,10 @@
 .show-detail-content img {
     margin-bottom: 20px;
     width: 100%;
+}
+
+.show-detail-content-inner {
+    font-size: 20px;
 }
 
 .show-detail-transparent {

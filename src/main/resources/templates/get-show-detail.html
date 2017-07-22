@@ -1,8 +1,11 @@
 <div class="show-detail-content all-border-radius">
-    <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
-    <a th:href="${detail.productUrl}" target="_blank">商品链接</a>
-    PS:<br>
-    <span th:text="${detail.content}"></span>
+    <a th:href="${detail.productUrl}" target="_blank">
+        <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
+    </a>
+    <div class="show-detail-content-inner">
+        PS:<br>
+        <span th:text="${detail.content}"></span>
+    </div>
 </div>
 
 <div class="show-detail-transparent"></div>
