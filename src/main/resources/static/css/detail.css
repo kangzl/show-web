@@ -8,6 +8,12 @@
     overflow-y: auto;
 }
 
+.detail-shadow {
+    -webkit-box-shadow: 0 1px 25px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 1px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.6);
+}
+
 /**
 content
  */
@@ -15,6 +21,9 @@ content
     width: 100%;
     background-color: white;
     padding: 5% 10%;
+    -webkit-box-shadow: 0 1px 25px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 1px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.6);
 }
 
 .show-detail-content img {

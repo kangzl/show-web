@@ -1,4 +1,4 @@
-<div class="show-detail-content all-border-radius">
+<div class="show-detail-content all-border-radius detail-shadow">
     <a th:href="${detail.productUrl}" target="_blank">
         <img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" class="img-rounded"/>
     </a>
@@ -10,12 +10,12 @@
 
 <div class="show-detail-transparent"></div>
 
-<div class="show-detail-product-info all-border-radius">
+<div class="show-detail-product-info all-border-radius detail-shadow">
     商品信息:
 </div>
 
 <div class="show-detail-transparent"></div>
 
-<div class="show-detail-product-msg all-border-radius">
+<div class="show-detail-product-msg all-border-radius detail-shadow">
     留言:
 </div>
