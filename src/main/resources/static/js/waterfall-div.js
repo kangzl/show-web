@@ -57,7 +57,7 @@ var layer = undefined;
      */
     function restWindows(event) {
         resetContainerWidth(event);
-        restDetailIframeHeight();
+        //restDetailIframeHeight();
     };
 
     /**
@@ -207,12 +207,16 @@ function renderDetail(showId) {
             shade: 0.6,
             isOutAnim: false,
             success: function (layero, index) {
+                $('body').css('overflow-y', 'hidden');
+                $('body').prepend('<div class="container show-detail"></div>');
+                $('.show-detail').css('margin-top', $('body').scrollTop());
+                $('.show-detail').append('内容讷讷呢<br><br><br>sdf<br><br><br><br><br><br>sss测试<br><br><br><br><br><br><br><br><br><br><br>s;;ll;0we<br><br><br><br><br><br><br><br><br><br><br>tt搜索<br><br><br>sdf<br><br><br><br><br><br>sss测试搜索<br><br><br><br><br><br><br><br><br><br><br>s;;ll;0we<br><br><br><br><br><br><br><br><br><br><br>');
                 $('.show-detail').show();
-                $('body').css('overflow-y','hidden');
             }, end: function () {
                 $('.show-detail').hide();
+                $('.show-detail').remove()
                 layer.closeAll();
-                $('body').css('overflow-y','auto');
+                $('body').css('overflow-y', 'auto');
             }
         });
     });
