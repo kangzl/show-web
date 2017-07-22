@@ -224,8 +224,9 @@ function renderDetail(showId) {
                         $('.show-detail').append(html);
                     }
                 });
-                $('.show-detail').slideDown('fast');
                 $('.show-detail-user').slideDown('fast');
+                $('.show-detail').slideDown('fast');
+                //注册滚动上升事件
                 $('.show-detail').scroll(function () {
                     $('.show-detail').animate({marginTop: $('body').scrollTop()});
                 });
