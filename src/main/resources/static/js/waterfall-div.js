@@ -217,7 +217,7 @@ function renderDetail(showId) {
                         area: '65%',
                         offset: [topOffset + 'px', '7.8%'],
                         title: false,
-                        anim: 0,
+                        anim: 4,
                         isOutAnim: false,
                         shade: 0,
                         content: 'api/get-show-detail.htm?showId=' + showId

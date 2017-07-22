@@ -7,17 +7,27 @@
     <meta name="description" content="An example how to achieve a endless scroll effect with Wookmark"/>
     <meta name="author" content="Christoph Ono, Sebastian Helzle"/>
     <title>Masonry API Test</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css"/>
     <!-- CSS Reset -->
     <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
     <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/show-detail.css"/>
 </head>
 
 <body onscroll="moveOn()">
-<img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}" style="max-width: 640px;"/>
-<a th:href="${detail.productUrl}">商品链接</a>
-评价:
-<span th:text="${detail.content}"></span>
+<div class="container">
+    <a th:href="${detail.productUrl}" target="_blank"><img th:each="pic : ${detail.getPicUrls()}" th:src="${pic}"/></a>
+    <a th:href="${detail.productUrl}" target="_blank">商品链接</a>
+    <div class="show-content">
+        PS:<br>
+        <span th:text="${detail.content}"></span>
+    </div>
+</div>
+
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script type="application/javascript">
     $(document).ready(function () {
         window.top.window.restDetailIframeHeight();
