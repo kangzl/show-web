@@ -6,4 +6,5 @@
     width: 65%;
     background-color: #2aabd2;
     margin-left: 7.5%;
+    overflow-y: auto;
 }

@@ -9,3 +9,7 @@ a {
 #loader {
     display: none;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}

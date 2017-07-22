@@ -208,9 +208,11 @@ function renderDetail(showId) {
             isOutAnim: false,
             success: function (layero, index) {
                 $('.show-detail').show();
+                $('body').css('overflow-y','hidden');
             }, end: function () {
                 $('.show-detail').hide();
                 layer.closeAll();
+                $('body').css('overflow-y','auto');
             }
         });
     });
