@@ -17,7 +17,7 @@
         </a>
         <a href="#show-detail-msg-anchor" class="a-anchor">
             <div class="detail-menu-btn detail-menu-msg-btn">
-                评论
+                留言
             </div>
         </a>
         <a href="#">
@@ -69,8 +69,9 @@
     $(document).ready(function () {
         $("a.a-anchor").click(function () {
             var topValue = $($(this).attr('href')).position().top;
-            var totalTopValue = topValue + $('.show-detail').scrollTop();
+            var totalTopValue = topValue + $('.show-detail').scrollTop() - 90;
             $('.show-detail').scrollTop(totalTopValue);
+            // $(".show-detail").animate({scrollTop: totalTopValue});
             return false;
         });
     });
