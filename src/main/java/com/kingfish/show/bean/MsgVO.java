@@ -115,6 +115,6 @@ public class MsgVO implements Comparable {
         MsgVO another = (MsgVO) o;
         if (StringUtils.isEmpty(this.createTime) || StringUtils.isEmpty(another.createTime))
             return 0;
-        return this.createTime.compareTo(another.createTime);
+        return another.createTime.compareTo(this.createTime);
     }
 }

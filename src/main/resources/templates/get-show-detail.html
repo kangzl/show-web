@@ -43,6 +43,11 @@
         </div>
     </div>
 </div>
+
+<div class="hidden">
+    <input id="showId" th:value="${detail.id}"/>
+</div>
+
 <div class="show-detail-transparent"></div>
 
 <div id="show-detail-product-anchor" class="show-detail-product-info all-border-radius detail-shadow">
@@ -51,7 +56,8 @@
 
 <div class="show-detail-transparent"></div>
 
-<div th:include="fragments/detail-msg::copy" id="show-detail-msg-anchor" class="show-detail-product-msg all-border-radius detail-shadow">
+<div th:include="fragments/detail-msg::copy" id="show-detail-msg-anchor"
+     class="show-detail-product-msg all-border-radius detail-shadow">
     留言:
 </div>
 

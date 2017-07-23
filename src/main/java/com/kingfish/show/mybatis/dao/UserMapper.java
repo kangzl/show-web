@@ -57,12 +57,12 @@ public interface UserMapper {
     @Insert({
         "insert into user (gmt_create, gmt_modify, ",
         "username, password, ",
-        "nick_name, sex, head_portrait_url, ",
+        "nick_name, sex, header_pic_url, ",
         "signature, mobile_phone_number, ",
         "email, hide_nick_name)",
         "values (#{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, ",
         "#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, ",
-        "#{nickName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{headPortraitUrl,jdbcType=VARCHAR}, ",
+        "#{nickName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{headerPicUrl,jdbcType=VARCHAR}, ",
         "#{signature,jdbcType=VARCHAR}, #{mobilePhoneNumber,jdbcType=VARCHAR}, ",
         "#{email,jdbcType=VARCHAR}, #{hideNickName,jdbcType=BIT})"
     })
@@ -94,7 +94,7 @@ public interface UserMapper {
         @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
         @Result(column="nick_name", property="nickName", jdbcType=JdbcType.VARCHAR),
         @Result(column="sex", property="sex", jdbcType=JdbcType.TINYINT),
-        @Result(column="head_portrait_url", property="headPortraitUrl", jdbcType=JdbcType.VARCHAR),
+        @Result(column="header_pic_url", property="headerPicUrl", jdbcType=JdbcType.VARCHAR),
         @Result(column="signature", property="signature", jdbcType=JdbcType.VARCHAR),
         @Result(column="mobile_phone_number", property="mobilePhoneNumber", jdbcType=JdbcType.VARCHAR),
         @Result(column="email", property="email", jdbcType=JdbcType.VARCHAR),
@@ -110,7 +110,7 @@ public interface UserMapper {
      */
     @Select({
         "select",
-        "id, gmt_create, gmt_modify, username, password, nick_name, sex, head_portrait_url, ",
+        "id, gmt_create, gmt_modify, username, password, nick_name, sex, header_pic_url, ",
         "signature, mobile_phone_number, email, hide_nick_name",
         "from user",
         "where id = #{id,jdbcType=BIGINT}"
@@ -123,7 +123,7 @@ public interface UserMapper {
         @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
         @Result(column="nick_name", property="nickName", jdbcType=JdbcType.VARCHAR),
         @Result(column="sex", property="sex", jdbcType=JdbcType.TINYINT),
-        @Result(column="head_portrait_url", property="headPortraitUrl", jdbcType=JdbcType.VARCHAR),
+        @Result(column="header_pic_url", property="headerPicUrl", jdbcType=JdbcType.VARCHAR),
         @Result(column="signature", property="signature", jdbcType=JdbcType.VARCHAR),
         @Result(column="mobile_phone_number", property="mobilePhoneNumber", jdbcType=JdbcType.VARCHAR),
         @Result(column="email", property="email", jdbcType=JdbcType.VARCHAR),
@@ -172,7 +172,7 @@ public interface UserMapper {
           "password = #{password,jdbcType=VARCHAR},",
           "nick_name = #{nickName,jdbcType=VARCHAR},",
           "sex = #{sex,jdbcType=TINYINT},",
-          "head_portrait_url = #{headPortraitUrl,jdbcType=VARCHAR},",
+          "header_pic_url = #{headerPicUrl,jdbcType=VARCHAR},",
           "signature = #{signature,jdbcType=VARCHAR},",
           "mobile_phone_number = #{mobilePhoneNumber,jdbcType=VARCHAR},",
           "email = #{email,jdbcType=VARCHAR},",

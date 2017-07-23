@@ -70,8 +70,8 @@ public class UserSqlProvider {
             sql.VALUES("sex", "#{sex,jdbcType=TINYINT}");
         }
         
-        if (record.getHeadPortraitUrl() != null) {
-            sql.VALUES("head_portrait_url", "#{headPortraitUrl,jdbcType=VARCHAR}");
+        if (record.getHeaderPicUrl() != null) {
+            sql.VALUES("header_pic_url", "#{headerPicUrl,jdbcType=VARCHAR}");
         }
         
         if (record.getSignature() != null) {
@@ -112,7 +112,7 @@ public class UserSqlProvider {
         sql.SELECT("password");
         sql.SELECT("nick_name");
         sql.SELECT("sex");
-        sql.SELECT("head_portrait_url");
+        sql.SELECT("header_pic_url");
         sql.SELECT("signature");
         sql.SELECT("mobile_phone_number");
         sql.SELECT("email");
@@ -168,8 +168,8 @@ public class UserSqlProvider {
             sql.SET("sex = #{record.sex,jdbcType=TINYINT}");
         }
         
-        if (record.getHeadPortraitUrl() != null) {
-            sql.SET("head_portrait_url = #{record.headPortraitUrl,jdbcType=VARCHAR}");
+        if (record.getHeaderPicUrl() != null) {
+            sql.SET("header_pic_url = #{record.headerPicUrl,jdbcType=VARCHAR}");
         }
         
         if (record.getSignature() != null) {
@@ -209,7 +209,7 @@ public class UserSqlProvider {
         sql.SET("password = #{record.password,jdbcType=VARCHAR}");
         sql.SET("nick_name = #{record.nickName,jdbcType=VARCHAR}");
         sql.SET("sex = #{record.sex,jdbcType=TINYINT}");
-        sql.SET("head_portrait_url = #{record.headPortraitUrl,jdbcType=VARCHAR}");
+        sql.SET("header_pic_url = #{record.headerPicUrl,jdbcType=VARCHAR}");
         sql.SET("signature = #{record.signature,jdbcType=VARCHAR}");
         sql.SET("mobile_phone_number = #{record.mobilePhoneNumber,jdbcType=VARCHAR}");
         sql.SET("email = #{record.email,jdbcType=VARCHAR}");
@@ -254,8 +254,8 @@ public class UserSqlProvider {
             sql.SET("sex = #{sex,jdbcType=TINYINT}");
         }
         
-        if (record.getHeadPortraitUrl() != null) {
-            sql.SET("head_portrait_url = #{headPortraitUrl,jdbcType=VARCHAR}");
+        if (record.getHeaderPicUrl() != null) {
+            sql.SET("header_pic_url = #{headerPicUrl,jdbcType=VARCHAR}");
         }
         
         if (record.getSignature() != null) {

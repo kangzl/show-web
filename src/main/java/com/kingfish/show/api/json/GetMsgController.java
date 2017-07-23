@@ -4,10 +4,14 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.kingfish.show.bean.MsgVO;
 import com.kingfish.show.mybatis.dao.MsgMapper;
+import com.kingfish.show.mybatis.dao.UserMapper;
 import com.kingfish.show.mybatis.model.Msg;
 import com.kingfish.show.mybatis.model.MsgExample;
+import com.kingfish.show.mybatis.model.User;
+import com.kingfish.show.utils.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +28,8 @@ import java.util.Map;
 public class GetMsgController {
     @Autowired
     private MsgMapper msgMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @RequestMapping("api/get-msgs.json")
     public List<MsgVO> getMsgs(@RequestParam(value = "showId") Long showId) {
@@ -78,13 +84,48 @@ public class GetMsgController {
             return null;
         }
         MsgVO msgVO = new MsgVO();
-        //TODO:拷贝必要信息
-        //TODO:查找用户id,头像,昵称等信息
+        //拷贝必要信息
+        msgVO.setMsgId(msg.getId());
+        msgVO.setAgreeNum(msg.getAgreeNum() == null ? 0 : msg.getAgreeNum());
+        msgVO.setCreateTime(DateTimeUtil.toString(msg.getGmtCreate()));
+        msgVO.setContent(msg.getContent());
+        //查找用户id,头像,昵称等信息
+        if (!StringUtils.isEmpty(msg.getFromUserId())) {
+            User fromUser = userMapper.selectByPrimaryKey(msg.getFromUserId());
+            msgVO.setFromUserId(fromUser.getId());
+            msgVO.setFromUserName(fromUser.getUsername());
+            msgVO.setFromUserHeaderPic(fromUser.getHeaderPicUrl());
+        }
+        if (!StringUtils.isEmpty(msg.getToUserId())) {
+            User toUser = userMapper.selectByPrimaryKey(msg.getToUserId());
+            msgVO.setToUserId(toUser.getId());
+            msgVO.setToUserName(toUser.getUsername());
+            msgVO.setToUserHeaderPic(toUser.getHeaderPicUrl());
+        }
         return msgVO;
     }
 
     private Map<Msg, List<Msg>> groupMsg(List<Msg> msgs) {
         Map<Msg, List<Msg>> result = Maps.newHashMap();
+        if (CollectionUtils.isEmpty(msgs)) return result;
+        List<Msg> mainMsgList = Lists.newArrayList();
+        Map<Long, List<Msg>> parentMsgId2SubMsgsMap = Maps.newHashMap();
+        for (Msg msg : msgs) {
+            Long parentMsgId = msg.getParentMsgId();
+            if (parentMsgId == null) {
+                mainMsgList.add(msg);
+            } else {
+                List<Msg> SubMsgList = parentMsgId2SubMsgsMap.get(parentMsgId);
+                if (SubMsgList == null) {
+                    SubMsgList = Lists.newArrayList();
+                    parentMsgId2SubMsgsMap.put(parentMsgId, SubMsgList);
+                }
+                SubMsgList.add(msg);
+            }
+        }
+        for (Msg mainMsg : mainMsgList) {
+            result.put(mainMsg, parentMsgId2SubMsgsMap.get(mainMsg.getId()));
+        }
         return result;
     }
 }

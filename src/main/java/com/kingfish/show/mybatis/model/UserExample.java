@@ -645,73 +645,73 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlIsNull() {
-            addCriterion("head_portrait_url is null");
+        public Criteria andHeaderPicUrlIsNull() {
+            addCriterion("header_pic_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlIsNotNull() {
-            addCriterion("head_portrait_url is not null");
+        public Criteria andHeaderPicUrlIsNotNull() {
+            addCriterion("header_pic_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlEqualTo(String value) {
-            addCriterion("head_portrait_url =", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlEqualTo(String value) {
+            addCriterion("header_pic_url =", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlNotEqualTo(String value) {
-            addCriterion("head_portrait_url <>", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlNotEqualTo(String value) {
+            addCriterion("header_pic_url <>", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlGreaterThan(String value) {
-            addCriterion("head_portrait_url >", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlGreaterThan(String value) {
+            addCriterion("header_pic_url >", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlGreaterThanOrEqualTo(String value) {
-            addCriterion("head_portrait_url >=", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("header_pic_url >=", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlLessThan(String value) {
-            addCriterion("head_portrait_url <", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlLessThan(String value) {
+            addCriterion("header_pic_url <", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlLessThanOrEqualTo(String value) {
-            addCriterion("head_portrait_url <=", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlLessThanOrEqualTo(String value) {
+            addCriterion("header_pic_url <=", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlLike(String value) {
-            addCriterion("head_portrait_url like", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlLike(String value) {
+            addCriterion("header_pic_url like", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlNotLike(String value) {
-            addCriterion("head_portrait_url not like", value, "headPortraitUrl");
+        public Criteria andHeaderPicUrlNotLike(String value) {
+            addCriterion("header_pic_url not like", value, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlIn(List<String> values) {
-            addCriterion("head_portrait_url in", values, "headPortraitUrl");
+        public Criteria andHeaderPicUrlIn(List<String> values) {
+            addCriterion("header_pic_url in", values, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlNotIn(List<String> values) {
-            addCriterion("head_portrait_url not in", values, "headPortraitUrl");
+        public Criteria andHeaderPicUrlNotIn(List<String> values) {
+            addCriterion("header_pic_url not in", values, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlBetween(String value1, String value2) {
-            addCriterion("head_portrait_url between", value1, value2, "headPortraitUrl");
+        public Criteria andHeaderPicUrlBetween(String value1, String value2) {
+            addCriterion("header_pic_url between", value1, value2, "headerPicUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHeadPortraitUrlNotBetween(String value1, String value2) {
-            addCriterion("head_portrait_url not between", value1, value2, "headPortraitUrl");
+        public Criteria andHeaderPicUrlNotBetween(String value1, String value2) {
+            addCriterion("header_pic_url not between", value1, value2, "headerPicUrl");
             return (Criteria) this;
         }
 

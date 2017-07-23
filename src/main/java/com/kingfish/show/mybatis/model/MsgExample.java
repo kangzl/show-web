@@ -435,133 +435,123 @@ public class MsgExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+        public Criteria andFromUserIdIsNull() {
+            addCriterion("from_user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+        public Criteria andFromUserIdIsNotNull() {
+            addCriterion("from_user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
+        public Criteria andFromUserIdEqualTo(Long value) {
+            addCriterion("from_user_id =", value, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
+        public Criteria andFromUserIdNotEqualTo(Long value) {
+            addCriterion("from_user_id <>", value, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
+        public Criteria andFromUserIdGreaterThan(Long value) {
+            addCriterion("from_user_id >", value, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
+        public Criteria andFromUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("from_user_id >=", value, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
+        public Criteria andFromUserIdLessThan(Long value) {
+            addCriterion("from_user_id <", value, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
+        public Criteria andFromUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("from_user_id <=", value, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
+        public Criteria andFromUserIdIn(List<Long> values) {
+            addCriterion("from_user_id in", values, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
+        public Criteria andFromUserIdNotIn(List<Long> values) {
+            addCriterion("from_user_id not in", values, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+        public Criteria andFromUserIdBetween(Long value1, Long value2) {
+            addCriterion("from_user_id between", value1, value2, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+        public Criteria andFromUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("from_user_id not between", value1, value2, "fromUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpIsNull() {
-            addCriterion("user_ip is null");
+        public Criteria andToUserIdIsNull() {
+            addCriterion("to_user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpIsNotNull() {
-            addCriterion("user_ip is not null");
+        public Criteria andToUserIdIsNotNull() {
+            addCriterion("to_user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpEqualTo(String value) {
-            addCriterion("user_ip =", value, "userIp");
+        public Criteria andToUserIdEqualTo(Long value) {
+            addCriterion("to_user_id =", value, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpNotEqualTo(String value) {
-            addCriterion("user_ip <>", value, "userIp");
+        public Criteria andToUserIdNotEqualTo(Long value) {
+            addCriterion("to_user_id <>", value, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpGreaterThan(String value) {
-            addCriterion("user_ip >", value, "userIp");
+        public Criteria andToUserIdGreaterThan(Long value) {
+            addCriterion("to_user_id >", value, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpGreaterThanOrEqualTo(String value) {
-            addCriterion("user_ip >=", value, "userIp");
+        public Criteria andToUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("to_user_id >=", value, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpLessThan(String value) {
-            addCriterion("user_ip <", value, "userIp");
+        public Criteria andToUserIdLessThan(Long value) {
+            addCriterion("to_user_id <", value, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpLessThanOrEqualTo(String value) {
-            addCriterion("user_ip <=", value, "userIp");
+        public Criteria andToUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("to_user_id <=", value, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpLike(String value) {
-            addCriterion("user_ip like", value, "userIp");
+        public Criteria andToUserIdIn(List<Long> values) {
+            addCriterion("to_user_id in", values, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpNotLike(String value) {
-            addCriterion("user_ip not like", value, "userIp");
+        public Criteria andToUserIdNotIn(List<Long> values) {
+            addCriterion("to_user_id not in", values, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpIn(List<String> values) {
-            addCriterion("user_ip in", values, "userIp");
+        public Criteria andToUserIdBetween(Long value1, Long value2) {
+            addCriterion("to_user_id between", value1, value2, "toUserId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIpNotIn(List<String> values) {
-            addCriterion("user_ip not in", values, "userIp");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIpBetween(String value1, String value2) {
-            addCriterion("user_ip between", value1, value2, "userIp");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIpNotBetween(String value1, String value2) {
-            addCriterion("user_ip not between", value1, value2, "userIp");
+        public Criteria andToUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("to_user_id not between", value1, value2, "toUserId");
             return (Criteria) this;
         }
 
@@ -635,243 +625,63 @@ public class MsgExample {
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdIsNull() {
-            addCriterion("replay_msg_id is null");
+        public Criteria andParentMsgIdIsNull() {
+            addCriterion("parent_msg_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdIsNotNull() {
-            addCriterion("replay_msg_id is not null");
+        public Criteria andParentMsgIdIsNotNull() {
+            addCriterion("parent_msg_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdEqualTo(Long value) {
-            addCriterion("replay_msg_id =", value, "replayMsgId");
+        public Criteria andParentMsgIdEqualTo(Long value) {
+            addCriterion("parent_msg_id =", value, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdNotEqualTo(Long value) {
-            addCriterion("replay_msg_id <>", value, "replayMsgId");
+        public Criteria andParentMsgIdNotEqualTo(Long value) {
+            addCriterion("parent_msg_id <>", value, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdGreaterThan(Long value) {
-            addCriterion("replay_msg_id >", value, "replayMsgId");
+        public Criteria andParentMsgIdGreaterThan(Long value) {
+            addCriterion("parent_msg_id >", value, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("replay_msg_id >=", value, "replayMsgId");
+        public Criteria andParentMsgIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("parent_msg_id >=", value, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdLessThan(Long value) {
-            addCriterion("replay_msg_id <", value, "replayMsgId");
+        public Criteria andParentMsgIdLessThan(Long value) {
+            addCriterion("parent_msg_id <", value, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdLessThanOrEqualTo(Long value) {
-            addCriterion("replay_msg_id <=", value, "replayMsgId");
+        public Criteria andParentMsgIdLessThanOrEqualTo(Long value) {
+            addCriterion("parent_msg_id <=", value, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdIn(List<Long> values) {
-            addCriterion("replay_msg_id in", values, "replayMsgId");
+        public Criteria andParentMsgIdIn(List<Long> values) {
+            addCriterion("parent_msg_id in", values, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdNotIn(List<Long> values) {
-            addCriterion("replay_msg_id not in", values, "replayMsgId");
+        public Criteria andParentMsgIdNotIn(List<Long> values) {
+            addCriterion("parent_msg_id not in", values, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdBetween(Long value1, Long value2) {
-            addCriterion("replay_msg_id between", value1, value2, "replayMsgId");
+        public Criteria andParentMsgIdBetween(Long value1, Long value2) {
+            addCriterion("parent_msg_id between", value1, value2, "parentMsgId");
             return (Criteria) this;
         }
 
-        public Criteria andReplayMsgIdNotBetween(Long value1, Long value2) {
-            addCriterion("replay_msg_id not between", value1, value2, "replayMsgId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdIsNull() {
-            addCriterion("reply_user_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdIsNotNull() {
-            addCriterion("reply_user_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdEqualTo(Long value) {
-            addCriterion("reply_user_id =", value, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdNotEqualTo(Long value) {
-            addCriterion("reply_user_id <>", value, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdGreaterThan(Long value) {
-            addCriterion("reply_user_id >", value, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("reply_user_id >=", value, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdLessThan(Long value) {
-            addCriterion("reply_user_id <", value, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("reply_user_id <=", value, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdIn(List<Long> values) {
-            addCriterion("reply_user_id in", values, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdNotIn(List<Long> values) {
-            addCriterion("reply_user_id not in", values, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdBetween(Long value1, Long value2) {
-            addCriterion("reply_user_id between", value1, value2, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andReplyUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("reply_user_id not between", value1, value2, "replyUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdIsNull() {
-            addCriterion("product_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdIsNotNull() {
-            addCriterion("product_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdEqualTo(Long value) {
-            addCriterion("product_id =", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdNotEqualTo(Long value) {
-            addCriterion("product_id <>", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdGreaterThan(Long value) {
-            addCriterion("product_id >", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_id >=", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdLessThan(Long value) {
-            addCriterion("product_id <", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_id <=", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdIn(List<Long> values) {
-            addCriterion("product_id in", values, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdNotIn(List<Long> values) {
-            addCriterion("product_id not in", values, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdBetween(Long value1, Long value2) {
-            addCriterion("product_id between", value1, value2, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_id not between", value1, value2, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdIsNull() {
-            addCriterion("product_key_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdIsNotNull() {
-            addCriterion("product_key_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdEqualTo(Long value) {
-            addCriterion("product_key_id =", value, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdNotEqualTo(Long value) {
-            addCriterion("product_key_id <>", value, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdGreaterThan(Long value) {
-            addCriterion("product_key_id >", value, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_key_id >=", value, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdLessThan(Long value) {
-            addCriterion("product_key_id <", value, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_key_id <=", value, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdIn(List<Long> values) {
-            addCriterion("product_key_id in", values, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdNotIn(List<Long> values) {
-            addCriterion("product_key_id not in", values, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdBetween(Long value1, Long value2) {
-            addCriterion("product_key_id between", value1, value2, "productKeyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductKeyIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_key_id not between", value1, value2, "productKeyId");
+        public Criteria andParentMsgIdNotBetween(Long value1, Long value2) {
+            addCriterion("parent_msg_id not between", value1, value2, "parentMsgId");
             return (Criteria) this;
         }
 
@@ -932,6 +742,76 @@ public class MsgExample {
 
         public Criteria andAgreeNumNotBetween(Integer value1, Integer value2) {
             addCriterion("agree_num not between", value1, value2, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpIsNull() {
+            addCriterion("ip is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpIsNotNull() {
+            addCriterion("ip is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpEqualTo(String value) {
+            addCriterion("ip =", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpNotEqualTo(String value) {
+            addCriterion("ip <>", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpGreaterThan(String value) {
+            addCriterion("ip >", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpGreaterThanOrEqualTo(String value) {
+            addCriterion("ip >=", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpLessThan(String value) {
+            addCriterion("ip <", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpLessThanOrEqualTo(String value) {
+            addCriterion("ip <=", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpLike(String value) {
+            addCriterion("ip like", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpNotLike(String value) {
+            addCriterion("ip not like", value, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpIn(List<String> values) {
+            addCriterion("ip in", values, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpNotIn(List<String> values) {
+            addCriterion("ip not in", values, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpBetween(String value1, String value2) {
+            addCriterion("ip between", value1, value2, "ip");
+            return (Criteria) this;
+        }
+
+        public Criteria andIpNotBetween(String value1, String value2) {
+            addCriterion("ip not between", value1, value2, "ip");
             return (Criteria) this;
         }
     }
