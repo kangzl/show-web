@@ -70,12 +70,24 @@ public class MsgSqlProvider {
             sql.VALUES("content", "#{content,jdbcType=VARCHAR}");
         }
         
+        if (record.getReplayMsgId() != null) {
+            sql.VALUES("replay_msg_id", "#{replayMsgId,jdbcType=BIGINT}");
+        }
+        
+        if (record.getReplyUserId() != null) {
+            sql.VALUES("reply_user_id", "#{replyUserId,jdbcType=BIGINT}");
+        }
+        
         if (record.getProductId() != null) {
             sql.VALUES("product_id", "#{productId,jdbcType=BIGINT}");
         }
         
         if (record.getProductKeyId() != null) {
             sql.VALUES("product_key_id", "#{productKeyId,jdbcType=BIGINT}");
+        }
+        
+        if (record.getAgreeNum() != null) {
+            sql.VALUES("agree_num", "#{agreeNum,jdbcType=INTEGER}");
         }
         
         return sql.toString();
@@ -100,8 +112,11 @@ public class MsgSqlProvider {
         sql.SELECT("user_id");
         sql.SELECT("user_ip");
         sql.SELECT("content");
+        sql.SELECT("replay_msg_id");
+        sql.SELECT("reply_user_id");
         sql.SELECT("product_id");
         sql.SELECT("product_key_id");
+        sql.SELECT("agree_num");
         sql.FROM("msg");
         applyWhere(sql, example, false);
         
@@ -153,12 +168,24 @@ public class MsgSqlProvider {
             sql.SET("content = #{record.content,jdbcType=VARCHAR}");
         }
         
+        if (record.getReplayMsgId() != null) {
+            sql.SET("replay_msg_id = #{record.replayMsgId,jdbcType=BIGINT}");
+        }
+        
+        if (record.getReplyUserId() != null) {
+            sql.SET("reply_user_id = #{record.replyUserId,jdbcType=BIGINT}");
+        }
+        
         if (record.getProductId() != null) {
             sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
         }
         
         if (record.getProductKeyId() != null) {
             sql.SET("product_key_id = #{record.productKeyId,jdbcType=BIGINT}");
+        }
+        
+        if (record.getAgreeNum() != null) {
+            sql.SET("agree_num = #{record.agreeNum,jdbcType=INTEGER}");
         }
         
         applyWhere(sql, example, true);
@@ -182,8 +209,11 @@ public class MsgSqlProvider {
         sql.SET("user_id = #{record.userId,jdbcType=BIGINT}");
         sql.SET("user_ip = #{record.userIp,jdbcType=VARCHAR}");
         sql.SET("content = #{record.content,jdbcType=VARCHAR}");
+        sql.SET("replay_msg_id = #{record.replayMsgId,jdbcType=BIGINT}");
+        sql.SET("reply_user_id = #{record.replyUserId,jdbcType=BIGINT}");
         sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
         sql.SET("product_key_id = #{record.productKeyId,jdbcType=BIGINT}");
+        sql.SET("agree_num = #{record.agreeNum,jdbcType=INTEGER}");
         
         MsgExample example = (MsgExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -224,12 +254,24 @@ public class MsgSqlProvider {
             sql.SET("content = #{content,jdbcType=VARCHAR}");
         }
         
+        if (record.getReplayMsgId() != null) {
+            sql.SET("replay_msg_id = #{replayMsgId,jdbcType=BIGINT}");
+        }
+        
+        if (record.getReplyUserId() != null) {
+            sql.SET("reply_user_id = #{replyUserId,jdbcType=BIGINT}");
+        }
+        
         if (record.getProductId() != null) {
             sql.SET("product_id = #{productId,jdbcType=BIGINT}");
         }
         
         if (record.getProductKeyId() != null) {
             sql.SET("product_key_id = #{productKeyId,jdbcType=BIGINT}");
+        }
+        
+        if (record.getAgreeNum() != null) {
+            sql.SET("agree_num = #{agreeNum,jdbcType=INTEGER}");
         }
         
         sql.WHERE("id = #{id,jdbcType=BIGINT}");

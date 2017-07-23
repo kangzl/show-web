@@ -74,6 +74,10 @@ public class ShowsSqlProvider {
             sql.VALUES("pics", "#{pics,jdbcType=VARCHAR}");
         }
         
+        if (record.getPicNum() != null) {
+            sql.VALUES("pic_num", "#{picNum,jdbcType=INTEGER}");
+        }
+        
         if (record.getShowTime() != null) {
             sql.VALUES("show_time", "#{showTime,jdbcType=TIMESTAMP}");
         }
@@ -88,6 +92,10 @@ public class ShowsSqlProvider {
         
         if (record.getOutsideUserNickname() != null) {
             sql.VALUES("outside_user_nickname", "#{outsideUserNickname,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getLikeUserIds() != null) {
+            sql.VALUES("like_user_ids", "#{likeUserIds,jdbcType=VARCHAR}");
         }
         
         return sql.toString();
@@ -113,10 +121,12 @@ public class ShowsSqlProvider {
         sql.SELECT("praise");
         sql.SELECT("product_id");
         sql.SELECT("pics");
+        sql.SELECT("pic_num");
         sql.SELECT("show_time");
         sql.SELECT("is_outside");
         sql.SELECT("outside_user_head_pic");
         sql.SELECT("outside_user_nickname");
+        sql.SELECT("like_user_ids");
         sql.FROM("shows");
         applyWhere(sql, example, false);
         
@@ -172,6 +182,10 @@ public class ShowsSqlProvider {
             sql.SET("pics = #{record.pics,jdbcType=VARCHAR}");
         }
         
+        if (record.getPicNum() != null) {
+            sql.SET("pic_num = #{record.picNum,jdbcType=INTEGER}");
+        }
+        
         if (record.getShowTime() != null) {
             sql.SET("show_time = #{record.showTime,jdbcType=TIMESTAMP}");
         }
@@ -186,6 +200,10 @@ public class ShowsSqlProvider {
         
         if (record.getOutsideUserNickname() != null) {
             sql.SET("outside_user_nickname = #{record.outsideUserNickname,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getLikeUserIds() != null) {
+            sql.SET("like_user_ids = #{record.likeUserIds,jdbcType=VARCHAR}");
         }
         
         applyWhere(sql, example, true);
@@ -210,10 +228,12 @@ public class ShowsSqlProvider {
         sql.SET("praise = #{record.praise,jdbcType=INTEGER}");
         sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
         sql.SET("pics = #{record.pics,jdbcType=VARCHAR}");
+        sql.SET("pic_num = #{record.picNum,jdbcType=INTEGER}");
         sql.SET("show_time = #{record.showTime,jdbcType=TIMESTAMP}");
         sql.SET("is_outside = #{record.isOutside,jdbcType=BIT}");
         sql.SET("outside_user_head_pic = #{record.outsideUserHeadPic,jdbcType=VARCHAR}");
         sql.SET("outside_user_nickname = #{record.outsideUserNickname,jdbcType=VARCHAR}");
+        sql.SET("like_user_ids = #{record.likeUserIds,jdbcType=VARCHAR}");
         
         ShowsExample example = (ShowsExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -258,6 +278,10 @@ public class ShowsSqlProvider {
             sql.SET("pics = #{pics,jdbcType=VARCHAR}");
         }
         
+        if (record.getPicNum() != null) {
+            sql.SET("pic_num = #{picNum,jdbcType=INTEGER}");
+        }
+        
         if (record.getShowTime() != null) {
             sql.SET("show_time = #{showTime,jdbcType=TIMESTAMP}");
         }
@@ -272,6 +296,10 @@ public class ShowsSqlProvider {
         
         if (record.getOutsideUserNickname() != null) {
             sql.SET("outside_user_nickname = #{outsideUserNickname,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getLikeUserIds() != null) {
+            sql.SET("like_user_ids = #{likeUserIds,jdbcType=VARCHAR}");
         }
         
         sql.WHERE("id = #{id,jdbcType=BIGINT}");

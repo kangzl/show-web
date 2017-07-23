@@ -57,12 +57,14 @@ public interface MsgMapper {
     @Insert({
         "insert into msg (gmt_create, gmt_modify, ",
         "show_id, user_id, user_ip, ",
-        "content, product_id, ",
-        "product_key_id)",
+        "content, replay_msg_id, ",
+        "reply_user_id, product_id, ",
+        "product_key_id, agree_num)",
         "values (#{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, ",
         "#{showId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{userIp,jdbcType=VARCHAR}, ",
-        "#{content,jdbcType=VARCHAR}, #{productId,jdbcType=BIGINT}, ",
-        "#{productKeyId,jdbcType=BIGINT})"
+        "#{content,jdbcType=VARCHAR}, #{replayMsgId,jdbcType=BIGINT}, ",
+        "#{replyUserId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, ",
+        "#{productKeyId,jdbcType=BIGINT}, #{agreeNum,jdbcType=INTEGER})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Msg record);
@@ -92,8 +94,11 @@ public interface MsgMapper {
         @Result(column="user_id", property="userId", jdbcType=JdbcType.BIGINT),
         @Result(column="user_ip", property="userIp", jdbcType=JdbcType.VARCHAR),
         @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR),
+        @Result(column="replay_msg_id", property="replayMsgId", jdbcType=JdbcType.BIGINT),
+        @Result(column="reply_user_id", property="replyUserId", jdbcType=JdbcType.BIGINT),
         @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
-        @Result(column="product_key_id", property="productKeyId", jdbcType=JdbcType.BIGINT)
+        @Result(column="product_key_id", property="productKeyId", jdbcType=JdbcType.BIGINT),
+        @Result(column="agree_num", property="agreeNum", jdbcType=JdbcType.INTEGER)
     })
     List<Msg> selectByExample(MsgExample example);
 
@@ -105,8 +110,8 @@ public interface MsgMapper {
      */
     @Select({
         "select",
-        "id, gmt_create, gmt_modify, show_id, user_id, user_ip, content, product_id, ",
-        "product_key_id",
+        "id, gmt_create, gmt_modify, show_id, user_id, user_ip, content, replay_msg_id, ",
+        "reply_user_id, product_id, product_key_id, agree_num",
         "from msg",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -118,8 +123,11 @@ public interface MsgMapper {
         @Result(column="user_id", property="userId", jdbcType=JdbcType.BIGINT),
         @Result(column="user_ip", property="userIp", jdbcType=JdbcType.VARCHAR),
         @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR),
+        @Result(column="replay_msg_id", property="replayMsgId", jdbcType=JdbcType.BIGINT),
+        @Result(column="reply_user_id", property="replyUserId", jdbcType=JdbcType.BIGINT),
         @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
-        @Result(column="product_key_id", property="productKeyId", jdbcType=JdbcType.BIGINT)
+        @Result(column="product_key_id", property="productKeyId", jdbcType=JdbcType.BIGINT),
+        @Result(column="agree_num", property="agreeNum", jdbcType=JdbcType.INTEGER)
     })
     Msg selectByPrimaryKey(Long id);
 
@@ -164,8 +172,11 @@ public interface MsgMapper {
           "user_id = #{userId,jdbcType=BIGINT},",
           "user_ip = #{userIp,jdbcType=VARCHAR},",
           "content = #{content,jdbcType=VARCHAR},",
+          "replay_msg_id = #{replayMsgId,jdbcType=BIGINT},",
+          "reply_user_id = #{replyUserId,jdbcType=BIGINT},",
           "product_id = #{productId,jdbcType=BIGINT},",
-          "product_key_id = #{productKeyId,jdbcType=BIGINT}",
+          "product_key_id = #{productKeyId,jdbcType=BIGINT},",
+          "agree_num = #{agreeNum,jdbcType=INTEGER}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Msg record);

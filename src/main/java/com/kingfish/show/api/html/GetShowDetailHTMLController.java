@@ -1,4 +1,4 @@
-package com.kingfish.show.api;
+package com.kingfish.show.api.html;
 
 import com.kingfish.show.bean.DetailVO;
 import com.kingfish.show.mybatis.dao.ProductMapper;

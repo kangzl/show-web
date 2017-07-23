@@ -1,4 +1,4 @@
-package com.kingfish.show.api;
+package com.kingfish.show.api.html;
 
 import com.github.pagehelper.PageHelper;
 import com.google.common.base.Splitter;

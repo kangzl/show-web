@@ -635,6 +635,126 @@ public class MsgExample {
             return (Criteria) this;
         }
 
+        public Criteria andReplayMsgIdIsNull() {
+            addCriterion("replay_msg_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdIsNotNull() {
+            addCriterion("replay_msg_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdEqualTo(Long value) {
+            addCriterion("replay_msg_id =", value, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdNotEqualTo(Long value) {
+            addCriterion("replay_msg_id <>", value, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdGreaterThan(Long value) {
+            addCriterion("replay_msg_id >", value, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("replay_msg_id >=", value, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdLessThan(Long value) {
+            addCriterion("replay_msg_id <", value, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdLessThanOrEqualTo(Long value) {
+            addCriterion("replay_msg_id <=", value, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdIn(List<Long> values) {
+            addCriterion("replay_msg_id in", values, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdNotIn(List<Long> values) {
+            addCriterion("replay_msg_id not in", values, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdBetween(Long value1, Long value2) {
+            addCriterion("replay_msg_id between", value1, value2, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayMsgIdNotBetween(Long value1, Long value2) {
+            addCriterion("replay_msg_id not between", value1, value2, "replayMsgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdIsNull() {
+            addCriterion("reply_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdIsNotNull() {
+            addCriterion("reply_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdEqualTo(Long value) {
+            addCriterion("reply_user_id =", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdNotEqualTo(Long value) {
+            addCriterion("reply_user_id <>", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdGreaterThan(Long value) {
+            addCriterion("reply_user_id >", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("reply_user_id >=", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdLessThan(Long value) {
+            addCriterion("reply_user_id <", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("reply_user_id <=", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdIn(List<Long> values) {
+            addCriterion("reply_user_id in", values, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdNotIn(List<Long> values) {
+            addCriterion("reply_user_id not in", values, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdBetween(Long value1, Long value2) {
+            addCriterion("reply_user_id between", value1, value2, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("reply_user_id not between", value1, value2, "replyUserId");
+            return (Criteria) this;
+        }
+
         public Criteria andProductIdIsNull() {
             addCriterion("product_id is null");
             return (Criteria) this;
@@ -752,6 +872,66 @@ public class MsgExample {
 
         public Criteria andProductKeyIdNotBetween(Long value1, Long value2) {
             addCriterion("product_key_id not between", value1, value2, "productKeyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumIsNull() {
+            addCriterion("agree_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumIsNotNull() {
+            addCriterion("agree_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumEqualTo(Integer value) {
+            addCriterion("agree_num =", value, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumNotEqualTo(Integer value) {
+            addCriterion("agree_num <>", value, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumGreaterThan(Integer value) {
+            addCriterion("agree_num >", value, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agree_num >=", value, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumLessThan(Integer value) {
+            addCriterion("agree_num <", value, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumLessThanOrEqualTo(Integer value) {
+            addCriterion("agree_num <=", value, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumIn(List<Integer> values) {
+            addCriterion("agree_num in", values, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumNotIn(List<Integer> values) {
+            addCriterion("agree_num not in", values, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumBetween(Integer value1, Integer value2) {
+            addCriterion("agree_num between", value1, value2, "agreeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgreeNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("agree_num not between", value1, value2, "agreeNum");
             return (Criteria) this;
         }
     }

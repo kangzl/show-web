@@ -695,6 +695,66 @@ public class ShowsExample {
             return (Criteria) this;
         }
 
+        public Criteria andPicNumIsNull() {
+            addCriterion("pic_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumIsNotNull() {
+            addCriterion("pic_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumEqualTo(Integer value) {
+            addCriterion("pic_num =", value, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumNotEqualTo(Integer value) {
+            addCriterion("pic_num <>", value, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumGreaterThan(Integer value) {
+            addCriterion("pic_num >", value, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pic_num >=", value, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumLessThan(Integer value) {
+            addCriterion("pic_num <", value, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumLessThanOrEqualTo(Integer value) {
+            addCriterion("pic_num <=", value, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumIn(List<Integer> values) {
+            addCriterion("pic_num in", values, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumNotIn(List<Integer> values) {
+            addCriterion("pic_num not in", values, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumBetween(Integer value1, Integer value2) {
+            addCriterion("pic_num between", value1, value2, "picNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("pic_num not between", value1, value2, "picNum");
+            return (Criteria) this;
+        }
+
         public Criteria andShowTimeIsNull() {
             addCriterion("show_time is null");
             return (Criteria) this;
@@ -952,6 +1012,76 @@ public class ShowsExample {
 
         public Criteria andOutsideUserNicknameNotBetween(String value1, String value2) {
             addCriterion("outside_user_nickname not between", value1, value2, "outsideUserNickname");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsIsNull() {
+            addCriterion("like_user_ids is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsIsNotNull() {
+            addCriterion("like_user_ids is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsEqualTo(String value) {
+            addCriterion("like_user_ids =", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsNotEqualTo(String value) {
+            addCriterion("like_user_ids <>", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsGreaterThan(String value) {
+            addCriterion("like_user_ids >", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsGreaterThanOrEqualTo(String value) {
+            addCriterion("like_user_ids >=", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsLessThan(String value) {
+            addCriterion("like_user_ids <", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsLessThanOrEqualTo(String value) {
+            addCriterion("like_user_ids <=", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsLike(String value) {
+            addCriterion("like_user_ids like", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsNotLike(String value) {
+            addCriterion("like_user_ids not like", value, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsIn(List<String> values) {
+            addCriterion("like_user_ids in", values, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsNotIn(List<String> values) {
+            addCriterion("like_user_ids not in", values, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsBetween(String value1, String value2) {
+            addCriterion("like_user_ids between", value1, value2, "likeUserIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikeUserIdsNotBetween(String value1, String value2) {
+            addCriterion("like_user_ids not between", value1, value2, "likeUserIds");
             return (Criteria) this;
         }
     }

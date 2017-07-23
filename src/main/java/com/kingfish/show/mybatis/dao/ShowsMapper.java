@@ -58,13 +58,15 @@ public interface ShowsMapper {
         "insert into shows (gmt_create, gmt_modify, ",
         "content, truth, praise, ",
         "product_id, pics, ",
-        "show_time, is_outside, ",
-        "outside_user_head_pic, outside_user_nickname)",
+        "pic_num, show_time, ",
+        "is_outside, outside_user_head_pic, ",
+        "outside_user_nickname, like_user_ids)",
         "values (#{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, ",
         "#{content,jdbcType=VARCHAR}, #{truth,jdbcType=DOUBLE}, #{praise,jdbcType=INTEGER}, ",
         "#{productId,jdbcType=BIGINT}, #{pics,jdbcType=VARCHAR}, ",
-        "#{showTime,jdbcType=TIMESTAMP}, #{isOutside,jdbcType=BIT}, ",
-        "#{outsideUserHeadPic,jdbcType=VARCHAR}, #{outsideUserNickname,jdbcType=VARCHAR})"
+        "#{picNum,jdbcType=INTEGER}, #{showTime,jdbcType=TIMESTAMP}, ",
+        "#{isOutside,jdbcType=BIT}, #{outsideUserHeadPic,jdbcType=VARCHAR}, ",
+        "#{outsideUserNickname,jdbcType=VARCHAR}, #{likeUserIds,jdbcType=VARCHAR})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Shows record);
@@ -95,10 +97,12 @@ public interface ShowsMapper {
         @Result(column="praise", property="praise", jdbcType=JdbcType.INTEGER),
         @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
         @Result(column="pics", property="pics", jdbcType=JdbcType.VARCHAR),
+        @Result(column="pic_num", property="picNum", jdbcType=JdbcType.INTEGER),
         @Result(column="show_time", property="showTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="is_outside", property="isOutside", jdbcType=JdbcType.BIT),
         @Result(column="outside_user_head_pic", property="outsideUserHeadPic", jdbcType=JdbcType.VARCHAR),
-        @Result(column="outside_user_nickname", property="outsideUserNickname", jdbcType=JdbcType.VARCHAR)
+        @Result(column="outside_user_nickname", property="outsideUserNickname", jdbcType=JdbcType.VARCHAR),
+        @Result(column="like_user_ids", property="likeUserIds", jdbcType=JdbcType.VARCHAR)
     })
     List<Shows> selectByExample(ShowsExample example);
 
@@ -110,8 +114,8 @@ public interface ShowsMapper {
      */
     @Select({
         "select",
-        "id, gmt_create, gmt_modify, content, truth, praise, product_id, pics, show_time, ",
-        "is_outside, outside_user_head_pic, outside_user_nickname",
+        "id, gmt_create, gmt_modify, content, truth, praise, product_id, pics, pic_num, ",
+        "show_time, is_outside, outside_user_head_pic, outside_user_nickname, like_user_ids",
         "from shows",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -124,10 +128,12 @@ public interface ShowsMapper {
         @Result(column="praise", property="praise", jdbcType=JdbcType.INTEGER),
         @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
         @Result(column="pics", property="pics", jdbcType=JdbcType.VARCHAR),
+        @Result(column="pic_num", property="picNum", jdbcType=JdbcType.INTEGER),
         @Result(column="show_time", property="showTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="is_outside", property="isOutside", jdbcType=JdbcType.BIT),
         @Result(column="outside_user_head_pic", property="outsideUserHeadPic", jdbcType=JdbcType.VARCHAR),
-        @Result(column="outside_user_nickname", property="outsideUserNickname", jdbcType=JdbcType.VARCHAR)
+        @Result(column="outside_user_nickname", property="outsideUserNickname", jdbcType=JdbcType.VARCHAR),
+        @Result(column="like_user_ids", property="likeUserIds", jdbcType=JdbcType.VARCHAR)
     })
     Shows selectByPrimaryKey(Long id);
 
@@ -173,10 +179,12 @@ public interface ShowsMapper {
           "praise = #{praise,jdbcType=INTEGER},",
           "product_id = #{productId,jdbcType=BIGINT},",
           "pics = #{pics,jdbcType=VARCHAR},",
+          "pic_num = #{picNum,jdbcType=INTEGER},",
           "show_time = #{showTime,jdbcType=TIMESTAMP},",
           "is_outside = #{isOutside,jdbcType=BIT},",
           "outside_user_head_pic = #{outsideUserHeadPic,jdbcType=VARCHAR},",
-          "outside_user_nickname = #{outsideUserNickname,jdbcType=VARCHAR}",
+          "outside_user_nickname = #{outsideUserNickname,jdbcType=VARCHAR},",
+          "like_user_ids = #{likeUserIds,jdbcType=VARCHAR}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Shows record);
