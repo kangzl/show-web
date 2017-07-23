@@ -66,21 +66,23 @@
         $('.detail-menu').width(showDetailWidth);
     }
 
-    /*
     $(document).ready(function () {
         $("a.a-anchor").click(function () {
-            var topValue = $($(this).attr("href")).offset().top;
-            //alert(topValue);
+            var topValue = $($(this).attr('href')).offset().top;
+           // alert(topValue);//4106
+            $('.show-detail').scrollTop(topValue);
+            /*
             $('.show-detail').animate({
                 scrollTop: topValue + "px"
             }, {
-                duration: 500,
+                duration: 100,
                 easing: "swing"
             });
-            return true;
+            */
+            return false;
         });
     });
-    */
+
 
     restDetailMenuWidth();
     $('.detail-menu').css('marginTop', detailMarginTop);

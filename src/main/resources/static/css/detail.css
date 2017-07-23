@@ -36,6 +36,7 @@ detail菜单
     text-align: center;
     border-left: 1px solid #efefef;
     color: #0088A8;
+    cursor: pointer;
     /*border-right: 1px solid #efefef;*/
 }
 
