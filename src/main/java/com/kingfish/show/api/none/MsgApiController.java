@@ -3,7 +3,6 @@ package com.kingfish.show.api.none;
 import com.kingfish.show.mybatis.dao.MsgMapper;
 import com.kingfish.show.mybatis.model.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,5 +56,20 @@ public class MsgApiController {
         newMsg.setGmtModify(new Date());
         newMsg.setAgreeNum(agreeNum - 1);
         msgMapper.updateByPrimaryKeySelective(newMsg);
+    }
+
+    @RequestMapping("api/insert-msg.htm")
+    public long insertMsg(@RequestParam(value = "fromUserId") Long fromUserId, @RequestParam(value = "toUserId") Long toUserId, @RequestParam(value = "msgId") Long parentMsgId, @RequestParam(value = "showId") Long showId, @RequestParam(value = "content") String content) {
+        if (fromUserId == null || showId == null) return 0l;
+        Msg msg = new Msg();
+        msg.setGmtCreate(new Date());
+        msg.setGmtModify(new Date());
+        msg.setContent(content);
+        msg.setFromUserId(fromUserId);
+        msg.setToUserId(toUserId);
+        msg.setParentMsgId(parentMsgId);
+        msg.setShowId(showId);
+        msg.setAgreeNum(0);
+        return msgMapper.insertSelective(msg);
     }
 }
