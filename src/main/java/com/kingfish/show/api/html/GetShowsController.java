@@ -23,7 +23,7 @@ import java.util.List;
  * Created by kingfish on 2017/7/14.
  */
 @Controller
-public class GetShowsHTMLController {
+public class GetShowsController {
 
     @Autowired
     private ShowsMapper showsMapper;

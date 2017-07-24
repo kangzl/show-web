@@ -1,4 +1,4 @@
-package com.kingfish.show.api.json;
+package com.kingfish.show.api.html;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -10,11 +10,12 @@ import com.kingfish.show.mybatis.model.MsgExample;
 import com.kingfish.show.mybatis.model.User;
 import com.kingfish.show.utils.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,15 +25,15 @@ import java.util.Map;
 /**
  * Created by kingfish on 2017/7/23.
  */
-@RestController
+@Controller
 public class GetMsgController {
     @Autowired
     private MsgMapper msgMapper;
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping("api/get-msgs.json")
-    public List<MsgVO> getMsgs(@RequestParam(value = "showId") Long showId) {
+    @RequestMapping("api/get-msgs.htm")
+    public String getMsgs(Model mode, @RequestParam(value = "showId") Long showId) {
         List<MsgVO> msgVOs = Lists.newArrayList();
         MsgExample msgExample = new MsgExample();
         MsgExample.Criteria criteria = msgExample.createCriteria();
@@ -48,7 +49,8 @@ public class GetMsgController {
         }
         //sort msg
         sortMsg(msgVOs);
-        return msgVOs;
+        mode.addAttribute("msgs", msgVOs);
+        return "get-msgs";
     }
 
     /**

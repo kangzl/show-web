@@ -22,7 +22,7 @@ import java.util.List;
  * Created by kingfish on 2017/7/14.
  */
 @RestController
-public class GetShowController {
+public class GetJsonShowController {
 
     @Autowired
     private ShowsMapper showsMapper;
