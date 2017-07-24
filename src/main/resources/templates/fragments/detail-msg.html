@@ -55,6 +55,27 @@
                 }
             });
         }
+
+        function delMsg(msgId) {
+            $.ajax({
+                url: 'api/del-msg.htm',
+                data: {msgId: msgId}
+            });
+        }
+
+        function appreciateMsg(msgId) {
+            $.ajax({
+                url: 'api/appreciate-msg.htm',
+                data: {msgId: msgId}
+            });
+        }
+
+        function cancelAppreciateMsg(msgId) {
+            $.ajax({
+                url: 'api/cancel-appreciate-msg.htm',
+                data: {msgId: msgId}
+            });
+        }
     </script>
     <!--textarea限制字数-->
     <script type="text/javascript">
@@ -184,23 +205,27 @@
                 oT.remove();
             }
             $(this).parents('.date-dz-right').parents('.date-dz').parents('.comment-show-con-list').parents('.comment-show-con').remove();
-
+            var msgId = $(this).parent().attr('msg-id');
+            delMsg(msgId);
         })
     </script>
     <!--点赞-->
     <script type="text/javascript">
         $('.comment-show').on('click', '.date-dz-z', function () {
             var zNum = $(this).find('.z-num').html();
+            var msgId = $(this).parent().attr('msg-id');
             if ($(this).is('.date-dz-z-click')) {
                 zNum--;
                 $(this).removeClass('date-dz-z-click red');
                 $(this).find('.z-num').html(zNum);
                 $(this).find('.date-dz-z-click-red').removeClass('red');
+                cancelAppreciateMsg(msgId);
             } else {
                 zNum++;
                 $(this).addClass('date-dz-z-click');
                 $(this).find('.z-num').html(zNum);
                 $(this).find('.date-dz-z-click-red').addClass('red');
+                appreciateMsg(msgId);
             }
         })
     </script>
