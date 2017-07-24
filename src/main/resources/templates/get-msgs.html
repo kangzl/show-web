@@ -4,7 +4,7 @@
     </div>
     <div class="comment-show-con-list pull-left clearfix">
         <div class="pl-text clearfix">
-            <a href="#" class="comment-size-name" th:text="${msg.fromUserName }+' : '"></a>
+            <a href="#" class="comment-size-name" th:attr="from-user-id=${msg.fromUserId}" th:text="${msg.fromUserName}+' : '"></a>
             <span class="my-pl-con" th:text="' ' + ${msg.content}"></span>
         </div>
         <div class="date-dz">
@@ -22,7 +22,7 @@
         <div class="hf-list-con" th:if="${not #lists.isEmpty(msg.replyMsgs)}">
             <div class="all-pl-con" th:each="replyMsg : ${msg.replyMsgs}">
                 <div class="pl-text hfpl-text clearfix">
-                    <a href="#" class="comment-size-name" th:text="${replyMsg.fromUserName} + ' : '"> </a>
+                    <a href="#" class="comment-size-name" th:attr="from-user-id=${msg.fromUserId}" th:text="${replyMsg.fromUserName} + ' : '"> </a>
                     <span class="my-pl-con">
                             回复
                             <a href="#" class="atName" th:text="'@' + ${replyMsg.toUserName} + ' : '"></a>
