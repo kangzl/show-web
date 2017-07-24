@@ -19,6 +19,29 @@
                 </a>
             </div>
         </div>
-        <div class="hf-list-con"></div>
+        <div class="hf-list-con" th:if="${not #lists.isEmpty(msg.replyMsgs)}">
+            <div class="all-pl-con" th:each="replyMsg : ${msg.replyMsgs}">
+                <div class="pl-text hfpl-text clearfix">
+                    <a href="#" class="comment-size-name" th:text="${replyMsg.fromUserName} + ' : '"> </a>
+                    <span class="my-pl-con">
+                            回复
+                            <a href="#" class="atName" th:text="'@' + ${replyMsg.toUserName} + ' : '"></a>
+                            <span th:text="${replyMsg.content}"></span>
+                        </span>
+                </div>
+                <div class="date-dz">
+                    <span class="date-dz-left pull-left comment-time" th:text="${replyMsg.createTime}"></span>
+                    <div class="date-dz-right pull-right comment-pl-block">
+                        <a href="javascript:;" class="removeBlock">删除</a>
+                        <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a>
+                        <span class="pull-left date-dz-line">|</span>
+                        <a href="javascript:;" class="date-dz-z pull-left">
+                            <i class="date-dz-z-click-red"></i>
+                            赞 (<i class="z-num" th:text="${replyMsg.agreeNum}"></i>)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
