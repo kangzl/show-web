@@ -94,7 +94,7 @@ public class GetMsgController {
         //查找用户id,头像,昵称等信息
         if (!StringUtils.isEmpty(msg.getFromUserId())) {
             User fromUser = userMapper.selectByPrimaryKey(msg.getFromUserId());
-            msgVO.setFromUserId(fromUser.getId());
+            msgVO.setFromUserId(fromUser.getId() == null ? 0 : fromUser.getId());
             msgVO.setFromUserName(fromUser.getUsername());
             msgVO.setFromUserHeaderPic(fromUser.getHeaderPicUrl());
         }

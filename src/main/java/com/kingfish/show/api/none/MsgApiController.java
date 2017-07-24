@@ -1,5 +1,6 @@
 package com.kingfish.show.api.none;
 
+import com.kingfish.show.bean.BaseVO;
 import com.kingfish.show.mybatis.dao.MsgMapper;
 import com.kingfish.show.mybatis.model.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,9 +59,9 @@ public class MsgApiController {
         msgMapper.updateByPrimaryKeySelective(newMsg);
     }
 
-    @RequestMapping("api/insert-msg.htm")
-    public long insertMsg(@RequestParam(value = "fromUserId") Long fromUserId, @RequestParam(value = "toUserId") Long toUserId, @RequestParam(value = "msgId") Long parentMsgId, @RequestParam(value = "showId") Long showId, @RequestParam(value = "content") String content) {
-        if (fromUserId == null || showId == null) return 0l;
+    @RequestMapping("api/insert-msg.json")
+    public BaseVO insertMsg(@RequestParam(value = "fromUserId") Long fromUserId, @RequestParam(value = "toUserId") Long toUserId, @RequestParam(value = "msgId") Long parentMsgId, @RequestParam(value = "showId") Long showId, @RequestParam(value = "content") String content) {
+        if (fromUserId == null || showId == null) return null;
         Msg msg = new Msg();
         msg.setGmtCreate(new Date());
         msg.setGmtModify(new Date());
@@ -70,6 +71,15 @@ public class MsgApiController {
         msg.setParentMsgId(parentMsgId);
         msg.setShowId(showId);
         msg.setAgreeNum(0);
-        return msgMapper.insertSelective(msg);
+        int count = msgMapper.insertSelective(msg);
+        if (count == 1) {
+            //return msg.getId();
+            BaseVO baseVO = new BaseVO();
+            baseVO.setSuccess(true);
+            baseVO.setMessage(String.valueOf(msg.getId()));
+            return baseVO;
+        } else {
+            return null;
+        }
     }
 }
