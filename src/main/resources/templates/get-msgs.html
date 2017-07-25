@@ -1,4 +1,4 @@
-<div class="comment-show-con clearfix" th:each="msg : ${msgs}" th:attr="msgId=${msg.msgId}">
+<div class="comment-show-con clearfix" th:attr="msg-id=${msg.msgId}" th:each="msg : ${msgs}">
     <div class="comment-show-con-img pull-left">
         <img th:src="${msg.fromUserHeaderPic}"/>
     </div>
@@ -46,4 +46,5 @@
             </div>
         </div>
     </div>
+    <div class="hf-list-con"></div>
 </div>
