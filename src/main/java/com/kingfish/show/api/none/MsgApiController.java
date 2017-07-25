@@ -3,6 +3,7 @@ package com.kingfish.show.api.none;
 import com.kingfish.show.bean.BaseVO;
 import com.kingfish.show.mybatis.dao.MsgMapper;
 import com.kingfish.show.mybatis.model.Msg;
+import com.kingfish.show.mybatis.model.MsgExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,10 @@ public class MsgApiController {
     public void deleteMsg(@RequestParam(value = "msgId") Long msgId) {
         if (msgId == null) return;
         msgMapper.deleteByPrimaryKey(msgId);
+        MsgExample msgExample = new MsgExample();
+        MsgExample.Criteria criteria = msgExample.createCriteria();
+        criteria.andParentMsgIdEqualTo(msgId);
+        msgMapper.deleteByExample(msgExample);
     }
 
     @RequestMapping("api/appreciate-msg.htm")
