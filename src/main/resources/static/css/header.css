@@ -1,4 +1,6 @@
 .header {
+    position: fixed;
+    z-index: 1;
     width: 100%;
     height: 65px;
     background-color: white;
@@ -14,4 +16,9 @@
 
 .header .logo img {
     height: 65px;
+}
+
+.header .dsddt img {
+    height: 65px;
+    float: left;
 }
