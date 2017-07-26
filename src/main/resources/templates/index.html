@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="zh-CN">
-<head th:include="fragments/head::copy">
-
-</head>
-
+<head th:include="fragments/head::copy"></head>
 <body>
 
-<div class="show-container">
-</div>
+<div th:include="fragments/header::copy"></div>
 
+<div th:include="fragments/index-top-banner::copy"></div>
+
+<div th:include="fragments/nav::copy"></div>
+
+<div class="show-container"></div>
 
 <div id="loader">
     <div id="loaderCircle" class="loading">
@@ -20,14 +21,7 @@
     </div>
 </div>
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="js/masonry/masonry.pkgd.min.js"></script>
-<script src="js/jqueryplugins/jquery.collapser.min.js"></script>
-<script src="layui/layui.js"></script>
-<script src="js/jqueryplugins/jquery.debouncedresize.js"></script>
-<script src="js/jqueryplugins/jquery.flexText.min.js"></script>
-<script src="js/waterfall-div.js"></script>
+<div th:include="fragments/main-js::copy"></div>
+
 </body>
 </html>
