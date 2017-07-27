@@ -1,21 +1,39 @@
 <div th:fragment="copy">
-    <div class="header navbar-fixed-top">
-        <div class="logo">
-            <img src="images/logo-lrsy-edit.png">
-        </div>
-        <div class="header-menu-left">
-            左侧菜单
-        </div>
-        <div class="header-search-bar">
-            搜索框-带as
-        </div>
-        <div class="header-menu-right">
-            <span class="header-login">
-                登录
-            </span>
-            <span class="header-signin">
-                注册
-            </span>
-        </div>
+    <div class="container">
+        <nav class="header navbar-fixed-top">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="logo">
+                            <img src="images/logo-lrsy-edit.png">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="header-menu-left">
+                            左侧菜单
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="header-search-bar">
+                        <input type="text" class="form-control header-search-input" placeholder="想什么,搜一下吧..."/>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                <span class="header-login">
+                    登录
+                </span>
+                        <span class="header-signin">
+                    注册
+                </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
+    <script type="application/javascript">
+    </script>
 </div>

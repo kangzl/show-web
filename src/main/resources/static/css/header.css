@@ -26,8 +26,15 @@
 }
 
 .header-search-bar {
-    width: 150px;
+    width: auto;
     float: left;
+}
+
+.header-search-input {
+    height: 40px;
+    margin-top: 12.5px;
+    width: 25%;
+    position: fixed;
 }
 
 .header-menu-right {

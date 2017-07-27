@@ -59,7 +59,10 @@ var detailMarginTop = 50;
     function restWindows(event) {
         resetContainerWidth(event);
         //restDetailIframeHeight();
-        restDetailMenuWidth();
+        if ($.isFunction(window.restDetailMenuWidth)) {
+            //该函数在detail页定义,没点过detail页不会有
+            restDetailMenuWidth();
+        }
     };
 
     /**
