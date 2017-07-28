@@ -61,3 +61,14 @@
 .header-menu-right {
     padding-top: 12.5px;
 }
+
+/**
+login
+ */
+.login-content {
+    width: 30%;
+}
+
+.login-inner-content {
+    margin: 10px 20px;
+}
