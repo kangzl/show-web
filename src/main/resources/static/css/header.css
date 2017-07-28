@@ -20,24 +20,44 @@
     float: left;
 }
 
+/**
+左侧菜单
+ */
 .header-menu-left {
     width: 150px;
     float: left;
 }
 
+/**
+搜索框
+ */
 .header-search-bar {
-    width: auto;
+    width: 30%;
     float: left;
 }
 
 .header-search-input {
     height: 40px;
     margin-top: 12.5px;
-    width: 25%;
-    position: fixed;
+    width: 70%;
+    float: left;
+}
+
+.header-search-btn {
+    height: 40px;
+    margin-top: 12.5px;
+    float: left;
+    margin-left: 10px;
 }
 
 .header-menu-right {
     float: right;
     width: 150px;
+}
+
+/**
+右侧菜单
+ */
+.header-menu-right {
+
 }
