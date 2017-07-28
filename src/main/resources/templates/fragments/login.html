@@ -1,0 +1,29 @@
+<div th:fragment="copy">
+    <div class="container">
+        登录框
+
+
+        斯蒂芬斯蒂芬
+    </div>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $(".header-login").click(showLogin);
+        });
+
+        function showLogin() {
+            layui.use('layer', function () {
+                layer = layui.layer;
+                layer.open({
+                    type: 1,
+                    scrollbar: true,
+                    shadeClose: true,
+                    closeBtn: 1,
+                    title: false,
+                    shade: 0.8,
+                    isOutAnim: true,
+                    content: $('#login-content').html()
+                });
+            })
+        }
+    </script>
+</div>

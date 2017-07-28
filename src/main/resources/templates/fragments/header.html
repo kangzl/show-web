@@ -19,16 +19,15 @@
                         <input type="button" class="btn btn-info header-search-btn" value="搜索"></div>
                 </li>
                 <li>
-                    <div class="header-menu-right">
-                        <a href="#">
-                            <span class="header-login">登录</span>
-                            <span class="header-signin">注册</span></a>
+                    <div class="header-menu-right btn-group">
+                        <button type="button" class="btn btn-info header-login-btn">登录</button>
+                        <button type="button" class="btn btn-default header-signin-btn">注册</button>
                     </div>
                 </li>
             </ul>
         </nav>
     </div>
-    <script type="application/javascript">$(document).ready(function () {
 
-    });</script>
+    <div class="hidden" id="login-content" th:include="fragments/login::copy">
+    </div>
 </div>
