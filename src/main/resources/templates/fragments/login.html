@@ -2,8 +2,8 @@
     <div class="container login-content">
         <div class="login-inner-content">
             <div class="login-header">
-                <h1>会员登录</h1>
-                还没有账号?<a href="#">立即注册</a>
+                <div class="login-text">会员登录</div>
+                <div class="no-account-text">还没有账号? <a href="#">立即注册</a></div>
             </div>
             <form>
                 <div class="form-group">
@@ -18,16 +18,25 @@
                     -->
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
                 </div>
-                <div class="checkbox">
-                    <a>忘记密码?</a>
-                    <label>
-                        <input type="checkbox"> 保持登录
-                    </label>
-                    <button type="submit" class="btn btn-info">登录</button>
+                <div class="login-bottom checkbox">
+                    <div class="forget-pw">
+                        <a href="#">忘记密码?</a>
+                    </div>
+                    <div class="keep-login">
+                        保持登录
+                        <div class="keep-login-checkbox">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary login-btn">登录</button>
                 </div>
             </form>
             <div class="third-login">
-                使用第三方账号直接登录
+                <div class="third-login-text">使用第三方账号直接登录</div>
+                <div class="third-login-btn">
+                    <button class="btn btn-large btn-danger weibo-btn" type="button">微博账号登录</button>
+                    <button class="btn btn-large btn-info qq-btn" type="button">QQ账号登录</button>
+                </div>
             </div>
         </div>
     </div>
@@ -43,6 +52,7 @@
                         anim: 1,
                         closeBtn: 0,
                         title: false,
+                        area: '380px',
                         content: $('.login-content').html()
                     });
                 })

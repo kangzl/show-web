@@ -72,3 +72,88 @@ login
 .login-inner-content {
     margin: 10px 20px;
 }
+
+.login-header {
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.login-text {
+    float: left;
+    font-size: 28px;
+    height: 100%;
+    line-height: 50px;
+}
+
+.no-account-text {
+    float: right;
+    height: 100%;
+    line-height: 60px;
+}
+
+.no-account-text a {
+    color: coral;
+}
+
+.login-bottom {
+    margin-top: 25px;
+    height: 35px;
+    margin-bottom: 20px;
+    line-height: 35px;
+}
+
+.forget-pw {
+    float: left;
+    line-height: 45px;
+}
+
+.keep-login {
+    float: left;
+    line-height: 45px;
+    margin-left: 120px;
+    width: 80px;
+}
+
+.keep-login-checkbox {
+    float: right;
+    margin-top: 12px;
+}
+
+.third-login {
+    border-top: 1px solid #efefef;
+}
+
+.third-login-text {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.third-login-btn {
+    height: 50px;
+}
+
+.login-btn {
+    float: right;
+}
+
+.weibo-btn {
+    width: 47%;
+    height: 40px;
+    float: left;
+    text-align: right;
+    padding-right: 13px;
+    padding-left: 5px;
+    background: #d63b22 url(../images/weibo.png) no-repeat 0px -5px;
+}
+
+.qq-btn {
+    width: 47%;
+    height: 40px;
+    float: right;
+    text-align: right;
+    padding-right: 13px;
+    padding-left: 5px;
+    background: #5bc0de url(../images/qq.png) no-repeat 0px -5px;
+}
