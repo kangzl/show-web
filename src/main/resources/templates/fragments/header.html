@@ -19,9 +19,18 @@
                         <input type="button" class="btn btn-info header-search-btn" value=""></div>
                 </li>
                 <li>
-                    <div class="header-menu-right btn-group">
+                    <div class="header-menu-right btn-group" th:unless="${isLogin}">
                         <button type="button" class="btn btn-info header-login-btn">登录</button>
                         <button type="button" class="btn btn-default header-signin-btn">注册</button>
+                    </div>
+                    <div class="header-menu-right login-user-info" th:if="${isLogin}">
+                        <input hidden id="currentUserId" th:value="${user.id}"/>
+                        <a href="#">
+                            <img th:src="${user.headerPicUrl}" th:title="'欢迎:'+${user.userName}">
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-sign-out" title="登出" onclick="logout()"></i>
+                        </a>
                     </div>
                 </li>
             </ul>
@@ -32,4 +41,27 @@
     </div>
     <div class="hidden" th:include="fragments/sign-in::copy">
     </div>
+
+    <script type="application/javascript">
+        function logout() {
+            $.ajax({
+                type: 'post',
+                url: 'api/logout.json',
+                dataType: 'json',
+                data: $("#login-form").serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        layui.use('layer', function () {
+                            window.location.reload();
+                        })
+                    } else {
+                        layui.use('layer', function () {
+                            var layerLogoutFail = layui.layer;
+                            layerLogoutFail.msg(data.message, {time: 1500});
+                        })
+                    }
+                }
+            });
+        }
+    </script>
 </div>

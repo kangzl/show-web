@@ -137,7 +137,7 @@ login & sign in
     height: 50px;
 }
 
-.login-btn,.signin-btn {
+.login-btn, .signin-btn {
     float: right;
 }
 
@@ -159,4 +159,23 @@ login & sign in
     padding-right: 13px;
     padding-left: 5px;
     background: #5bc0de url(../images/qq.png) no-repeat 0px -5px;
+}
+
+/**
+已登录用户信息
+ */
+.login-user-info {
+    padding: 0px;
+    text-align: left;
+}
+
+.login-user-info img {
+    width: 45px;
+    height: 45px;
+}
+
+.login-user-info i {
+    color: #9088ec;
+    font-size: 18px;
+    vertical-align: middle;
 }

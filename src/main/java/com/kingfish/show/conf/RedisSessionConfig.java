@@ -5,6 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @Configuration
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = Cookies.MAX_AGE) //7天失效
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = Cookies.MAX_AGE) //跟cookie保持一致
 public class RedisSessionConfig {
 }

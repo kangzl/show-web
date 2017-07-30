@@ -71,8 +71,7 @@
                 success: function (data) {
                     if (data.success) {
                         layui.use('layer', function () {
-                            layerLoginSuccess = layui.layer;
-                            layerLoginSuccess.msg('登录成功', {time: 1500});
+                            window.location.reload();
                         })
                     } else {
                         layui.use('layer', function () {

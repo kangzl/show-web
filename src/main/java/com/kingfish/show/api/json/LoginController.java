@@ -45,19 +45,10 @@ public class LoginController {
         User user = users.get(0);
         if (DigestUtils.md5Hex(DigestUtils.md5Hex(pwd.getBytes())).equals(user.getPassword())) {
             userVO.setSuccess(true);
-            userVO.setId(user.getId());
-            userVO.setUserName(user.getUsername());
-            userVO.setHeaderPicUrl(user.getHeaderPicUrl());
-            userVO.setSex(user.getSex().toString());
-            userVO.setEmail(user.getEmail());
-            userVO.setMobilePhoneNumber(user.getMobilePhoneNumber());
-            userVO.setSignature(user.getSignature());
-            userVO.setHideNickName(user.getHideNickName());
-            request.getSession().setAttribute(userName, user);
             //生成uuid存放在cookie
             String uuid = UUID.randomUUID().toString();
-            CookieUtil.addCookie(response, Cookies.USER_TOKEN, uuid, Cookies.MAX_AGE);
-            request.setAttribute(Cookies.USER_TOKEN, user);
+            CookieUtil.addCookie(response, Cookies.USER_TOKEN_ID, uuid, Cookies.MAX_AGE);
+            request.getSession().setAttribute(uuid, user);
         }
 
         return userVO;
@@ -66,15 +57,15 @@ public class LoginController {
     @RequestMapping("api/logout.json")
     public BaseVO logout(HttpServletRequest request, HttpServletResponse response) {
         BaseVO baseVO = new BaseVO();
-        Cookie uuid = CookieUtil.getCookieByName(request, Cookies.USER_TOKEN);
+        Cookie uuid = CookieUtil.getCookieByName(request, Cookies.USER_TOKEN_ID);
         if (StringUtils.isEmpty(uuid)) {
             baseVO.setSuccess(false);
             baseVO.setMessage("没有发现cookie信息!");
-            return null;
+            return baseVO;
         }
-        request.removeAttribute(Cookies.USER_TOKEN);
-        CookieUtil.removeCookie(request, response, Cookies.USER_TOKEN);
+        request.getSession().removeAttribute(uuid.getValue());
+        CookieUtil.removeCookie(request, response, Cookies.USER_TOKEN_ID);
         baseVO.setSuccess(true);
-        return null;
+        return baseVO;
     }
 }

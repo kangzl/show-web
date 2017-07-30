@@ -12,7 +12,7 @@ public class HomeController {
 
     @RequestMapping({"/", "/index.htm", "/index.html"})
     public String index(Model mode) {
-        //mode.addAttribute("hello", "from TemplateController.helloHtml");
+        //ModelAndView modelAndView = new ModelAndView("index");
         return "index";
     }
 
