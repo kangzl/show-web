@@ -16,7 +16,11 @@
                 <a href="javascript:showLogin();" class="date-dz-pl hf-con-block pull-left"
                    th:attr="from-user-id=${msg.fromUserId}" th:unless="${isLogin}">回复</a>
                 <span class="pull-left date-dz-line">|</span>
-                <a href="javascript:;" class="date-dz-z pull-left">
+                <a href="javascript:;" class="date-dz-z pull-left" th:if="${isLogin}">
+                    <i class="date-dz-z-click-red"></i>
+                    赞 (<i class="z-num" th:text="${msg.agreeNum}"></i>)
+                </a>
+                <a href="javascript:showLogin();" class="pull-left" th:unless="${isLogin}">
                     <i class="date-dz-z-click-red"></i>
                     赞 (<i class="z-num" th:text="${msg.agreeNum}"></i>)
                 </a>
@@ -41,7 +45,11 @@
                         <a href="javascript:;" class="date-dz-pl hf-con-block pull-left"
                            th:attr="from-user-id=${replyMsg.fromUserId}" th:unless="${isLogin}">回复</a>
                         <span class="pull-left date-dz-line">|</span>
-                        <a href="javascript:;" class="date-dz-z pull-left">
+                        <a href="javascript:;" class="date-dz-z pull-left" th:if="${isLogin}">
+                            <i class="date-dz-z-click-red"></i>
+                            赞 (<i class="z-num" th:text="${replyMsg.agreeNum}"></i>)
+                        </a>
+                        <a href="javascript:showLogin();" class="pull-left" th:unless="${isLogin}">
                             <i class="date-dz-z-click-red"></i>
                             赞 (<i class="z-num" th:text="${replyMsg.agreeNum}"></i>)
                         </a>
