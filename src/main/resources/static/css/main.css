@@ -6,10 +6,6 @@ a {
     text-decoration: none;
 }
 
-#loader {
-    display: none;
-}
-
 ::-webkit-scrollbar {
     display: none;
 }
