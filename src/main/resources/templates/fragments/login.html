@@ -3,7 +3,7 @@
         <div class="login-inner-content">
             <div class="login-header">
                 <div class="login-text">会员登录</div>
-                <div class="no-account-text">还没有账号? <a href="#">立即注册</a></div>
+                <div class="no-account-text">还没有账号? <a href="javascript:showSignIn();">立即注册</a></div>
             </div>
             <form id="login-form" method="post" data-validator-option="{theme:'yellow_top'}">
                 <div class="form-group">
@@ -37,11 +37,12 @@
         </div>
     </div>
     <script type="application/javascript">
+        var layerLogin = undefined;
         $(document).ready(function () {
             $(".header-login-btn").click(function () {
                 layui.use('layer', function () {
-                    layer = layui.layer;
-                    layer.open({
+                    layerLogin = layui.layer;
+                    layerLogin.open({
                         type: 1,
                         skin: 'layui-layer-rim', //加上边框
                         shadeClose: true, //开启遮罩关闭
@@ -54,5 +55,10 @@
                 })
             });
         });
+
+        function showSignIn() {
+            layerLogin.closeAll();
+            $('.header-login-btn').click();
+        }
     </script>
 </div>
