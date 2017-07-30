@@ -10,9 +10,11 @@
         <div class="date-dz">
             <span class="date-dz-left pull-left comment-time" th:text="${msg.createTime}"></span>
             <div class="date-dz-right pull-right comment-pl-block" th:attr="msg-id=${msg.msgId}">
-                <a href="javascript:;" class="removeBlock" th:if="${msg.fromUserId == user.id}">删除</a>
+                <a href="javascript:;" class="removeBlock" th:if="${isLogin && msg.fromUserId == user.id}">删除</a>
                 <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left"
-                   th:attr="from-user-id=${msg.fromUserId}">回复</a>
+                   th:attr="from-user-id=${msg.fromUserId}" th:if="${isLogin}">回复</a>
+                <a href="javascript:showLogin();" class="date-dz-pl hf-con-block pull-left"
+                   th:attr="from-user-id=${msg.fromUserId}" th:unless="${isLogin}">回复</a>
                 <span class="pull-left date-dz-line">|</span>
                 <a href="javascript:;" class="date-dz-z pull-left">
                     <i class="date-dz-z-click-red"></i>
@@ -33,9 +35,11 @@
                 <div class="date-dz">
                     <span class="date-dz-left pull-left comment-time" th:text="${replyMsg.createTime}"></span>
                     <div class="date-dz-right pull-right comment-pl-block" th:attr="msg-id=${replyMsg.msgId}">
-                        <a href="javascript:;" class="removeBlock" th:if="${replyMsg.fromUserId == user.id}">删除</a>
+                        <a href="javascript:;" class="removeBlock" th:if="${isLogin && replyMsg.fromUserId == user.id}">删除</a>
                         <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left"
-                           th:attr="from-user-id=${replyMsg.fromUserId}">回复</a>
+                           th:attr="from-user-id=${replyMsg.fromUserId}" th:if="${isLogin}">回复</a>
+                        <a href="javascript:;" class="date-dz-pl hf-con-block pull-left"
+                           th:attr="from-user-id=${replyMsg.fromUserId}" th:unless="${isLogin}">回复</a>
                         <span class="pull-left date-dz-line">|</span>
                         <a href="javascript:;" class="date-dz-z pull-left">
                             <i class="date-dz-z-click-red"></i>
