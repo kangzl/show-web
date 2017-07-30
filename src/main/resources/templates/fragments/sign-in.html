@@ -7,16 +7,16 @@
             </div>
             <form id="signin-form" method="post" data-validator-option="{theme:'yellow_top'}">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="id" placeholder="用户名/手机/邮箱" required
-                           data-rule="required;length(5~12)">
+                    <input type="email" class="form-control" name="id" placeholder="用户名" required
+                           data-rule="用户名:required;length(5~12)">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="pwd" placeholder="密码"
                            data-rule="密码:required;length(5~20)">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="pwd2" placeholder="确认密码"
-                           data-rule="required;length(5~20);match(pwd);">
+                    <input type="password" class="form-control" name="pwd2" placeholder="密码确认"
+                           data-rule="密码确认:required;length(5~20);match(pwd);">
                 </div>
                 <div class="login-bottom checkbox">
                     <button type="submit" class="btn btn-primary login-btn">立即注册</button>
