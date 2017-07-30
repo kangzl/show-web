@@ -33,6 +33,7 @@
     </div>
     <script type="application/javascript">
         var layerSignIn = undefined;
+        var signinContent = $('.signin-content').html();
         $(document).ready(function () {
             $(".header-signin-btn").click(function () {
                 layui.use('layer', function () {
@@ -45,7 +46,8 @@
                         closeBtn: 0,
                         title: false,
                         area: '380px',
-                        content: $('.signin-content').html()
+                        zIndex: 99999999,
+                        content: signinContent
                     });
                     $('.signin-content').empty();
                 })
@@ -53,7 +55,9 @@
         });
 
         function showLogin() {
-            layerSignIn.closeAll();
+            if (layerSignIn != undefined) {
+                layerSignIn.closeAll();
+            }
             $('.header-login-btn').click();
         }
     </script>

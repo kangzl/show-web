@@ -5,7 +5,8 @@
             <textarea class="content comment-input" placeholder="Please enter a comment&hellip;"
                       onkeyup="keyUP(this)"></textarea>
             <!--此处from-user-id必然为登陆的用户id-->
-            <a href="javascript:;" class="plBtn" from-user-id="0">评论</a>
+            <a th:unless="${isLogin}" href="javascript:showLogin();" class="no-login-plBtn">评论</a>
+            <a th:if="${isLogin}" href="javascript:;" class="plBtn" th:attr="from-user-id=${user.id}">评论</a>
         </div>
         <!--评论区域 end-->
         <!--回复区域 begin-->
