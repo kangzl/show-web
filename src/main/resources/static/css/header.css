@@ -66,23 +66,23 @@
 }
 
 /**
-login
+login & sign in
  */
-.login-content {
+.login-content, .signin-content {
     width: 30%;
 }
 
-.login-inner-content {
+.login-inner-content, .signin-inner-content {
     margin: 10px 20px;
 }
 
-.login-header {
+.login-header, .signin-header {
     height: 50px;
     margin-top: 15px;
     margin-bottom: 20px;
 }
 
-.login-text {
+.login-text, .signin-text {
     float: left;
     font-size: 28px;
     height: 100%;

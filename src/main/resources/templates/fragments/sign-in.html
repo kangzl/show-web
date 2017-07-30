@@ -1,11 +1,10 @@
 <div th:fragment="copy">
-    <div class="container login-content">
-        <div class="login-inner-content">
-            <div class="login-header">
-                <div class="login-text">会员登录</div>
-                <div class="no-account-text">还没有账号? <a href="#">立即注册</a></div>
+    <div class="container signin-content">
+        <div class="signin-inner-content">
+            <div class="signin-header">
+                <div class="signin-text">会员注册</div>
             </div>
-            <form id="login-form" method="post" data-validator-option="{theme:'yellow_top'}">
+            <form id="signin-form" method="post" data-validator-option="{theme:'yellow_top'}">
                 <div class="form-group">
                     <input type="email" class="form-control" name="id" placeholder="用户名/手机/邮箱" required
                            data-rule="required;length(5~12)">
@@ -14,17 +13,12 @@
                     <input type="password" class="form-control" name="pw" placeholder="密码"
                            data-rule="required;length(5~20)">
                 </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="pw2" placeholder="确认密码"
+                           data-rule="required;length(5~20)">
+                </div>
                 <div class="login-bottom checkbox">
-                    <div class="forget-pw">
-                        <a href="#">忘记密码?</a>
-                    </div>
-                    <div class="keep-login">
-                        保持登录
-                        <div class="keep-login-checkbox">
-                            <input type="checkbox" checked>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary login-btn">登录</button>
+                    <button type="submit" class="btn btn-primary login-btn">立即注册</button>
                 </div>
             </form>
             <div class="third-login">
@@ -38,7 +32,7 @@
     </div>
     <script type="application/javascript">
         $(document).ready(function () {
-            $(".header-login-btn").click(function () {
+            $(".header-signin-btn").click(function () {
                 layui.use('layer', function () {
                     layer = layui.layer;
                     layer.open({
@@ -49,7 +43,7 @@
                         closeBtn: 0,
                         title: false,
                         area: '380px',
-                        content: $('.login-content').html()
+                        content: $('.signin-content').html()
                     });
                 })
             });
