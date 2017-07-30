@@ -90,6 +90,8 @@
     <script type="text/javascript">
         $('.commentAll').on('click', '.plBtn', function () {
             var fromUserId = $(this).attr('from-user-id');//传递该值到回复按钮
+            var username = $('#userName').val();
+            var headerPicUrl = $('#headerPicUrl').val();
             var now = getDateStr();
             //获取输入内容
             var oSize = $(this).siblings('.flex-text-wrap').find('.comment-input').val();
@@ -103,7 +105,7 @@
                 success: function (data) {
                     //alert(data.message);
                     //动态创建评论模块
-                    var oHtml = '<div class="comment-show-con clearfix" msg-id="' + data.message + '"><div class="comment-show-con-img pull-left"><img src="images/header-img-comment_03.png" alt=""></div> <div class="comment-show-con-list pull-left clearfix"><div class="pl-text clearfix"> <a href="#" class="comment-size-name">David Beckham : </a> <span class="my-pl-con">&nbsp;' + oSize + '</span> </div> <div class="date-dz"> <span class="date-dz-left pull-left comment-time">' + now + '</span> <div class="date-dz-right pull-right comment-pl-block" msg-id="' + data.message + '"><a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left" from-user-id="' + fromUserId + '">回复</a> <span class="pull-left date-dz-line">|</span> <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">0</i>)</a> </div> </div><div class="hf-list-con"></div></div> </div>';
+                    var oHtml = '<div class="comment-show-con clearfix" msg-id="' + data.message + '"><div class="comment-show-con-img pull-left"><img src="' + headerPicUrl + '"></div> <div class="comment-show-con-list pull-left clearfix"><div class="pl-text clearfix"> <a href="#" class="comment-size-name">' + username + ' : </a> <span class="my-pl-con">&nbsp;' + oSize + '</span> </div> <div class="date-dz"> <span class="date-dz-left pull-left comment-time">' + now + '</span> <div class="date-dz-right pull-right comment-pl-block" msg-id="' + data.message + '"><a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left" from-user-id="' + fromUserId + '">回复</a> <span class="pull-left date-dz-line">|</span> <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">0</i>)</a> </div> </div><div class="hf-list-con"></div></div> </div>';
                     if (oSize.replace(/(^\s*)|(\s*$)/g, "") != '') {
                         thisObject.parents('.reviewArea ').siblings('.comment-show').prepend(oHtml);
                         thisObject.siblings('.flex-text-wrap').find('.comment-input').prop('value', '').siblings('pre').find('span').text('');

@@ -24,7 +24,9 @@
                         <button type="button" class="btn btn-default header-signin-btn">注册</button>
                     </div>
                     <div class="header-menu-right login-user-info" th:if="${isLogin}">
-                        <input hidden id="currentUserId" th:value="${user.id}"/>
+                        <input hidden id="userid" th:value="${user.id}"/>
+                        <input hidden id="userName" th:value="${user.userName}"/>
+                        <input hidden id="headerPicUrl" th:value="${user.headerPicUrl}"/>
                         <a href="#">
                             <img th:src="${user.headerPicUrl}" th:title="'欢迎:'+${user.userName}">
                         </a>
