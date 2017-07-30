@@ -8,7 +8,7 @@
             <form id="signin-form" method="post" data-validator-option="{theme:'yellow_top'}">
                 <div class="form-group">
                     <input type="email" class="form-control" name="id" placeholder="用户名" required
-                           data-rule="用户名:required;length(5~12)">
+                           data-rule="用户名:required;length(2~12)">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="pwd" placeholder="密码"
@@ -19,7 +19,7 @@
                            data-rule="密码确认:required;length(5~20);match(pwd);">
                 </div>
                 <div class="login-bottom checkbox">
-                    <button type="submit" class="btn btn-primary login-btn">立即注册</button>
+                    <button type="submit" class="btn btn-primary signin-btn">立即注册</button>
                 </div>
             </form>
             <div class="third-login">
@@ -47,6 +47,7 @@
                         area: '380px',
                         content: $('.signin-content').html()
                     });
+                    $('.signin-content').empty();
                 })
             });
         });

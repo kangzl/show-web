@@ -8,7 +8,7 @@
             <form id="login-form" method="post" data-validator-option="{theme:'yellow_top'}">
                 <div class="form-group">
                     <input type="email" class="form-control" name="id" placeholder="用户名/手机/邮箱" required
-                           data-rule="用户名/手机/邮箱:required;length(5~12)">
+                           data-rule="用户名/手机/邮箱:required;length(2~12)">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="pwd" placeholder="密码"
@@ -24,7 +24,7 @@
                             <input type="checkbox" checked>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary login-btn">登录</button>
+                    <button type="button" class="btn btn-primary login-btn" onclick="doLogin()">登录</button>
                 </div>
             </form>
             <div class="third-login">
@@ -52,6 +52,7 @@
                         area: '380px',
                         content: $('.login-content').html()
                     });
+                    $('.login-content').empty();
                 })
             });
         });
@@ -59,6 +60,28 @@
         function showSignIn() {
             layerLogin.closeAll();
             $('.header-signin-btn').click();
+        }
+
+        function doLogin() {
+            $.ajax({
+                type: 'post',
+                url: 'api/login.json',
+                dataType: 'json',
+                data: $("#login-form").serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        layui.use('layer', function () {
+                            layerLoginSuccess = layui.layer;
+                            layerLoginSuccess.msg('登录成功', {time: 1500});
+                        })
+                    } else {
+                        layui.use('layer', function () {
+                            var layerLoginFail = layui.layer;
+                            layerLoginFail.msg(data.message, {time: 1500});
+                        })
+                    }
+                }
+            });
         }
     </script>
 </div>

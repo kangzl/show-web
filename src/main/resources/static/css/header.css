@@ -137,7 +137,7 @@ login & sign in
     height: 50px;
 }
 
-.login-btn {
+.login-btn,.signin-btn {
     float: right;
 }
 
