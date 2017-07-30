@@ -48,6 +48,9 @@
     margin-top: 12.5px;
     float: left;
     margin-left: 10px;
+    width: 50px;
+    text-align: right;
+    background: #5bc0de url(../images/icon-search.png) no-repeat 10px 4px;
 }
 
 .header-menu-right {
